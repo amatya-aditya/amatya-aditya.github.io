@@ -1,0 +1,61 @@
+<div class="news">
+  {% if site.latest_notes != blank %}
+    {% assign latest_notes_size = site.research-notes | size %}
+    <div
+      class="table-responsive"
+      {% if site.latest_notes.scrollable and latest_notes_size > 3 %}
+        style="max-height: 60vw"
+      {% endif %}
+    >
+      <table class="table table-sm table-borderless">
+        {% assign latest_notes = site.research-notes %}
+        {% if site.latest_notes.limit %}
+          {% assign latest_notes_limit = site.latest_notes.limit %}
+        {% else %}
+          {% assign latest_notes_limit = latest_notes_size %}
+        {% endif %}
+        {% for item in latest_notes limit: latest_notes_limit %}
+          <tr>
+            <th scope="row" style="width: 20%">{{ item.date | date: '%b %d, %Y' }}</th>
+            <td>
+              {% if item.redirect == blank %}
+                <a class="news-title" href="{{ item.url | relative_url }}">{{ item.title }} </a> | 
+                {% assign tags_count = item.tags | size %}
+                {% for tag in item.tags %}
+                  <span class="kanban-teal"> {{ tag }}</span>
+                {% endfor %}
+
+              {% elsif item.redirect contains '://' %}
+                <a class="news-title" href="{{ item.redirect }}" target="_blank">{{ item.title}} </a> | 
+                {% assign tags_count = item.tags | size %}
+                {% for tag in item.tags %}
+                  <span class="kanban-teal"> {{ tag }}</span>
+                {% endfor %}
+                <svg width="2rem" height="2rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9"
+                    class="icon_svg-stroke"
+                    stroke="#999"
+                    stroke-width="1.5"
+                    fill="none"
+                    fill-rule="evenodd"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+              {% else %}
+                <a class="news-title" href="{{ item.redirect | relative_url }}">{{ item.title }} | 
+                {% assign tags_count = item.tags | size %}
+                {% for tag in item.tags %}
+                  <span class="kanban-teal"> {{ tag }}</span>
+                {% endfor %}
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+  {% else %}
+    <p>No notes so far...</p>
+  {% endif %}
+</div>

@@ -1,0 +1,44 @@
+.show-more {
+margin-left: 45%;
+margin-top: 24px;
+box-shadow: 0 0px 2px 0 rgba(0,0,0,0.16),0 2px 2px 0 rgba(0, 0, 0, 0);
+color: var(--global-theme-color) !important;
+font-weight: 500;
+}
+
+.show-more:hover {
+    color: var(--global-theme-color) !important;
+}
+
+.top {
+float: right;
+margin-top: 24px;
+box-shadow: 0 0px 2px 0 rgba(0,0,0,0.16),0 2px 2px 0 rgba(0, 0, 0, 0);
+padding: 12px;
+font-weight: 500;
+}
+
+.btn-primary {
+  background-color: var(--global-primary-btn-bg-color) !important;
+  color: var(--global-primary-btn-font-color) !important;
+  font-size: 12px !important;
+  font-weight: 500;
+  -webkit-box-shadow: 0 2px 1px 0 rgba(0,0,0,0.16),0 2px 1px 0 rgba(0,0,0,0.12);
+  box-shadow: 0 2px 1px 0 rgba(0,0,0,0.16),0 2px 1px 0 rgba(0,0,0,0.12);
+}
+
+.btn-primary:hover {
+  color: #000000;
+}
+
+.btn-primary:not([disabled]):not(.disabled).active {
+    background-color: var(--global-theme-color) !important;
+    color: #000 !important;;
+  }
+
+.btn-primary:not([disabled]):not(.disabled):active, .btn-primary:not([disabled]):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
+    background-color: var(--global-theme-color) !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #000 !important;;
+  }

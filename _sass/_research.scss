@@ -1,0 +1,44 @@
+
+  /* Define container class for the research interests */
+  .research-interests {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 0;
+    list-style-type: none;
+    padding-left: 0;
+  }
+  /* Define list item class for each research interest */
+  .research-interests li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 2px;
+  }
+
+  /* Define circle class for the small circles */
+  .circle {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--global-theme-color);
+    border-radius: 50%;
+  }
+
+  .research {
+    border-radius: 20px;
+    // background: rgba(2, 186, 161, 0.24);
+    background: var(--global-tag-color);
+    width: fit-content;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-weight: 400;
+  }
+
+
+
+
+
+.profile img {
+  transition: filter 0.5s; /* Add transition for smooth effect */
+}

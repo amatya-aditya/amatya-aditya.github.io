@@ -3,7 +3,6 @@
  ******************************************************************************/
 
 body {
-  padding-bottom: 70px;
   color: var(--global-text-color);
   background-color: var(--global-bg-color);
 
@@ -27,16 +26,61 @@ body.sticky-bottom-footer {
   padding-bottom: 0;
 }
 
+.mid-container {
+  max-width: $max-content-width;
+  box-shadow: 0 0rem 0.2rem 0 #00000026 !important;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  margin: 0 auto;
+  background-color: var(--global-container-color);
+  min-height: 100vh;
+  padding-bottom: 10px;
+}
+
+.footer-container {
+  max-width: $max-content-width;
+  margin: 0 auto;
+  background-color: var(--global-container-color);
+  padding-bottom: 15px;
+  box-shadow: 0 0rem 0.2rem 0 #00000026 !important;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 15px;
+  text-align: center;
+
+}
+
 .container {
   max-width: $max-content-width;
+  margin: 0 auto;
+  background-color: var(--global-container-color);
+}
+
+.resume-pdf {
+  display: block;
+  height: 750px !important;
+  overflow: hidden;
 }
 
 // Profile
 .profile {
   img {
-    width: 100%;
+    width: 60%;
+    margin-left: 2rem;
   }
 }
+
+article.post-content h1 {
+  font-size: 1.3em;
+}
+
+
+
+
+
+
 
 // TODO: redefine content layout.
 

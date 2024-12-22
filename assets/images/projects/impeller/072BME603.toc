@@ -1,0 +1,21 @@
+\babel@toc {english}{}
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}
+\contentsline {subsection}{\numberline {1.1}Centrifugal Fan}{1}{subsection.1.1}
+\contentsline {subsubsection}{\numberline {1.1.1}Impeller}{1}{subsubsection.1.1.1}
+\contentsline {subsection}{\numberline {1.2}Plug Fan}{1}{subsection.1.2}
+\contentsline {subsubsection}{\numberline {1.2.1}Types of Centrifugal Fans}{2}{subsubsection.1.2.1}
+\contentsline {subsection}{\numberline {1.3}Fundamental Equation and Velocity diagram of Radial Vane Blade}{3}{subsection.1.3}
+\contentsline {subsection}{\numberline {1.4}Historical Background}{5}{subsection.1.4}
+\contentsline {subsection}{\numberline {1.5}Applications}{6}{subsection.1.5}
+\contentsline {section}{\numberline {2}Methodology}{6}{section.2}
+\contentsline {subsection}{\numberline {2.1}1D Design}{7}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}3D Design}{9}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}CFD Simulation}{12}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}Geometry}{12}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.2}Meshing}{15}{subsubsection.2.3.2}
+\contentsline {subsubsection}{\numberline {2.3.3}Physics Setup}{17}{subsubsection.2.3.3}
+\contentsline {subsubsection}{\numberline {2.3.4}Solver}{18}{subsubsection.2.3.4}
+\contentsline {section}{\numberline {3}Results}{18}{section.3}
+\contentsline {subsection}{\numberline {3.1}Contour Plot}{18}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Result Verification}{20}{subsection.3.2}
+\contentsline {section}{\numberline {4}Conclusion and Remarks}{20}{section.4}

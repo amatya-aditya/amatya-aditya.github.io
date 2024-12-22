@@ -5,12 +5,12 @@
 @use "sass:color";
 
 :root {
-  --global-bg-color: #{$white-color};
+  // --global-bg-color: #{$white-color};
   --global-code-bg-color: #{$code-bg-color-light};
-  --global-text-color: #{$black-color};
+  --global-text-color: #{$light-text-color};
   --global-text-color-light: #{$grey-color};
-  --global-theme-color: #{$purple-color};
-  --global-hover-color: #{$purple-color};
+  --global-theme-color: #{$teal-color};
+  --global-hover-color: #{$teal-color};
   --global-hover-text-color: #{$white-color};
   --global-footer-bg-color: #{$grey-color-dark};
   --global-footer-text-color: #{$grey-color-light};
@@ -28,6 +28,17 @@
   --global-back-to-top-text-color: #{$white-color};
   --global-newsletter-bg-color: #{$white-color};
   --global-newsletter-text-color: #{$black-color};
+
+
+  --global-container-color: #{$container-light-color};
+  --global-nav-color: #{$nav-light-color};
+  --global-bg-color: #{$bg-light-color};
+  --global-blog-card-bg-color: #{$blog-card-head-bg-light-color};
+  --global-blog-card-font-color: #{$blog-card-head-font-light-color};
+  --global-primary-btn-bg-color: #{$blog-card-head-bg-light-color};
+  --global-primary-btn-font-color: #{$blog-card-head-font-light-color};
+  --global-tag-color: #{$tag-light-color};
+
 
   --global-tip-block: #42b983;
   --global-tip-block-bg: #e2f5ec;
@@ -80,8 +91,8 @@ html[data-theme="dark"] {
   --global-code-bg-color: #{$code-bg-color-dark};
   --global-text-color: #{$grey-color-light};
   --global-text-color-light: #{$grey-color};
-  --global-theme-color: #{$cyan-color};
-  --global-hover-color: #{$cyan-color};
+  --global-theme-color: #{$teal-color};
+  --global-hover-color: #{$teal-color};
   --global-hover-text-color: #{$white-color};
   --global-footer-bg-color: #{$grey-color-light};
   --global-footer-text-color: #{$grey-color-dark};
@@ -98,6 +109,16 @@ html[data-theme="dark"] {
   --global-back-to-top-text-color: #{$black-color};
   --global-newsletter-bg-color: #{$grey-color-light};
   --global-newsletter-text-color: #{$grey-color-dark};
+
+
+  --global-container-color: #{$container-dark-color};
+  --global-nav-color: #{$nav-dark-color};
+  --global-bg-color: #{$bg-dark-color};
+  --global-blog-card-bg-color: #{$blog-card-head-bg-dark-color};
+  --global-blog-card-font-color: #{$blog-card-head-font-dark-color};
+  --global-primary-btn-bg-color: #{$blog-card-head-bg-dark-color};
+  --global-primary-btn-font-color: #{$blog-card-head-font-dark-color};
+  --global-tag-color: #{$tag-dark-color};
 
   --global-tip-block: #42b983;
   --global-tip-block-bg: #e2f5ec;

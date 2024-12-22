@@ -1,0 +1,18 @@
+<nav data-toggle="ch-nav" class="sticky-top">
+  <h5 style="font-weight:600;">Chapters</h5>
+  <ul class="nav">
+    {%- assign current_subject = page.subject %}
+    {%- assign notes_in_subject = site.research-notes | where: "subject", current_subject | sort: "chapter-index" %}
+    {%- for note in notes_in_subject %}
+      <!-- Ensure we skip any entries related to ToC -->
+      {% unless note.url contains 'toc' %}
+        <li class="nav-item">
+          <a href="{{ note.url | relative_url }}" 
+             class="nav-link {% if note.url == page.url %}active{% endif %}">
+            {{ note.chapter-index }}. {{ note.title }}
+          </a>
+        </li>
+      {% endunless %}
+    {%- endfor %}
+  </ul>
+</nav>

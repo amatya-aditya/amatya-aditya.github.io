@@ -1,0 +1,85 @@
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+<script>
+    
+    $(document).ready(function() {
+
+        
+    
+        // filter blog posts for category
+        $('.category-link').click(function(e) {
+            var getCategory = $(this).text();
+            e.preventDefault()
+    
+            $('.all-link').removeClass('active');
+            $('.category-link').removeClass('active');
+            $(this).addClass('active');
+            $('.blog-card-head').removeClass('current');
+    
+            $('.blog-card-head').hide();
+            $('.blog-card-head').filter(function () {
+                var blogCategory = $(this).find('.blog-category a').text();
+                if (blogCategory.indexOf(getCategory) > -1) {
+                    $(this).addClass('current');
+                }
+                else {
+                    $(this).hide();
+                }
+            });
+            
+            $('.current').slice(0,6).fadeIn(500);
+            $('.show-more').show();
+            $('.top').hide();
+        });
+    
+        // show all blog posts
+        $('.all-link').click(function(e) {
+            e.preventDefault();
+            $('.blog-card-head').hide();
+            $('.blog-card-head').slice(0,6).fadeIn(500);
+            $('.show-more').show();
+            $('.top').hide();
+            $('.category-link').removeClass('active');
+            $(this).addClass('active');
+        });
+    
+        // load more items
+        $('.show-more').click(function(e) {
+            e.preventDefault();
+            $('html,body').animate({
+                scrollTop: $('.show-more').offset().top
+            }, 1500);	
+            
+            $('.current:hidden').slice(0,6).fadeIn(500);
+            
+            if ( $('.current:hidden').length === 0) {
+                $('.show-more').hide();
+                $('.top').show();
+            }	
+        });	
+        
+        // back to top
+        $('.top').click(function(e) {
+            e.preventDefault();
+            $('html,body').animate({
+                scrollTop: 0
+            }, 1500);
+        });	
+        
+        // no widows
+        $('.blog-title, .blog-summary').each(function() {
+            var wordArray = $(this).text().split(" ");
+            if (wordArray.length > 1) {
+                wordArray[wordArray.length-2] += "&nbsp;" + wordArray[wordArray.length-1];
+                wordArray.pop();
+                $(this).html(wordArray.join(" "));
+            }
+        });	
+        
+    });
+      
+
+
+</script>

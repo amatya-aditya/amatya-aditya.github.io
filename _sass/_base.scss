@@ -244,10 +244,13 @@ ul.task-list input[type="checkbox"] {
 // Navbar customization
 
 .navbar {
-  box-shadow: none;
-  border-bottom: 1px solid var(--global-divider-color);
-  background-color: var(--global-bg-color);
+  box-shadow: 0 0rem 0.1rem 0 #00000026 !important;
+  // border-bottom: 1px solid var(--global-divider-color);
   opacity: 0.95;
+  max-width: $max-content-width;
+  margin: 0 auto;
+  background-color: var(--global-nav-color);
+  font-weight: 500;
 }
 
 .navbar .dropdown-menu {
@@ -473,11 +476,11 @@ ul.task-list input[type="checkbox"] {
 
 // Footer
 footer.fixed-bottom {
-  background-color: var(--global-footer-bg-color);
+  // background-color: var(--global-footer-bg-color);
   font-size: 0.75rem;
 
   .container {
-    color: var(--global-footer-text-color);
+    // color: var(--global-footer-text-color);
     padding-top: 9px;
     padding-bottom: 8px;
     text-align: center;

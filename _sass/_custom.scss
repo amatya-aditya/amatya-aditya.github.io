@@ -7,3 +7,96 @@
 div.post {
     width: 100%
 }
+
+
+
+.mid-container,
+.navbar {
+  max-width: $max-content-width; // Default max width
+  margin: 0 auto; // Center align for larger screens
+}
+
+// Media query for 21-inch screens and above
+@media screen and (min-width: 1920px) {
+  .mid-container, .container,
+  .navbar {
+    max-width: 1290px!important; 
+  }
+}
+
+img {
+  vertical-align: middle;
+  border-style: none;
+  max-width: 32vw;
+  display: flex;
+  margin: 0 auto;
+}
+
+.newsletter-form-input, .bibsearch-form-input {
+  color: var(--global-text-color);
+  background: var(--global-container-color);
+  border: 1px solid var(--global-theme-color);
+  outline: none;
+  margin: auto 0;
+  width: 100%;
+  max-width: 350px;
+  min-width: 100px;
+  box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, .05) 0px 1px 2px;
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+
+
+
+.ninja-action.selected {
+  cursor: pointer;
+  color: var(--ninja-selected-text-color);
+  background-color: var(--ninja-bg-background) !important;
+  border-left: 2px solid var(--ninja-accent-color);
+  outline: none;
+}
+
+
+.modal-body {
+  background: var(--global-container-color) !important;
+}
+
+ninja-keys::part(ninja-input-wrapper) {
+  background: var(--global-container-color) !important;
+}
+
+.tag-category-list, .post-meta, .post-tags {
+  font-weight: 500;
+}
+
+:root #back-to-top {
+  color: var(--global-text-color);
+  background: var(--global-theme-color) !important;
+}
+
+.post-header {
+  text-align: center !important;
+}
+
+.btn-primary:hover {
+  background: var(--global-theme-color) !important;
+  color: #000 !important;
+}
+
+
+.swiper-horizontal>.swiper-pagination-bullets.swiper-pagination-bullets-dynamic, .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+  padding-top: 20px !important;
+  position: relative !important;
+}
+
+.swiper-button-next svg, .swiper-button-prev svg {
+  width: 60% !important;
+  height: 60% !important;
+  object-fit: contain;
+  transform-origin: center;
+}
+
+.img-fluid, .modal-dialog.cascading-modal.modal-avatar .modal-header, .video-fluid {
+  width: 50%;
+}

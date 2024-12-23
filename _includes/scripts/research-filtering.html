@@ -29,7 +29,7 @@
                 }
             });
             
-            $('.current').slice(0,6).fadeIn(500);
+            $('.current').slice(0,300).fadeIn(500);
             $('.show-more').show();
             $('.top').hide();
         });
@@ -38,7 +38,7 @@
         $('.all-link').click(function(e) {
             e.preventDefault();
             $('.blog-card-head').hide();
-            $('.blog-card-head').slice(0,6).fadeIn(500);
+            $('.blog-card-head').slice(0,300).fadeIn(500);
             $('.show-more').show();
             $('.top').hide();
             $('.category-link').removeClass('active');
@@ -52,7 +52,7 @@
                 scrollTop: $('.show-more').offset().top
             }, 1500);	
             
-            $('.current:hidden').slice(0,6).fadeIn(500);
+            $('.current:hidden').slice(0,300).fadeIn(500);
             
             if ( $('.current:hidden').length === 0) {
                 $('.show-more').hide();

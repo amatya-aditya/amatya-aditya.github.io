@@ -9,6 +9,7 @@ categories:
     - coding
 tags:
     - obsidian-plugin
+    - coding
 
 permalink: /obsidian-image-slider/
 

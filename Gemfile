@@ -18,7 +18,7 @@ group :jekyll_plugins do
     gem 'jekyll-toc'
     gem 'jekyll-twitter-plugin'
     gem 'jemoji'
-    gem 'unicode_utils'
+    # gem 'unicode_utils'
     gem 'webrick'
 end
 group :other_plugins do

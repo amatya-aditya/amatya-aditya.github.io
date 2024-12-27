@@ -1,11 +1,30 @@
 ---
-created: 2024-12-23T02:07
-updated: 2024-12-27T17:02
-tags: 
-share: "true"
-Share_folder: _research-notes
+layout: post
+date: 2024-12-27
+created: 2024-12-27T17:14
+updated: 2024-12-27T17:40
+tags:
+  - mechanics
+share: true
+Share_folder: _research-notes/
+title: Comprehensive Area of Mechanics
+description: 
+categories:
+  - Solid Mechanics
+Category:
+  - Solid Mechanics
+img: 
+pdf: 
+images:
+  compare: true
+  slider: true
+subject: Solid Mechanics
+chapter-index: 1
+chapter-navigation: true
+toc:
+  sidebar: right
 ---
-#Mechanics/ComprehensiveAreasOfStudy
+
 ## **Comprehensive Area of Mechanics**
 
 ### **I. Classical Mechanics**

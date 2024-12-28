@@ -2,14 +2,13 @@
 layout: post
 date: 2024-12-27
 created: 2024-12-27T17:14
-updated: 2024-12-27T17:41
+updated: 2024-12-27T17:56
 tags:
   - mechanics
 share: true
 share_folder: _research-notes
 title: Comprehensive Area of Mechanics
 description: 
-introline: A Comprehensive area of research field in the domain of Mechanics. classical mechanics based on Newton’s laws of motion.
 categories:
   - Solid Mechanics
 Category:
@@ -25,6 +24,8 @@ chapter-navigation: true
 toc:
   sidebar: right
 ---
+
+## **Comprehensive Area of Mechanics**
 
 ### **I. Classical Mechanics**
 

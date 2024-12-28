@@ -8,7 +8,9 @@ div.post {
     width: 100%
 }
 
-
+.sticky-top {
+  top: 10%;
+}
 
 .mid-container,
 .navbar {
@@ -20,7 +22,10 @@ div.post {
 @media screen and (min-width: 1920px) {
   .mid-container, .container,
   .navbar {
-    max-width: 1290px!important; 
+    max-width: 1480px!important; 
+  }
+  .sticky-top {
+    top: 7%;
   }
 }
 
@@ -28,8 +33,8 @@ img {
   vertical-align: middle;
   border-style: none;
   max-width: 32vw;
-  display: flex;
-  margin: 0 auto;
+  // display: flex;
+  // margin: 0 auto;
 }
 
 .newsletter-form-input, .bibsearch-form-input {
@@ -99,4 +104,18 @@ ninja-keys::part(ninja-input-wrapper) {
 
 .img-fluid, .modal-dialog.cascading-modal.modal-avatar .modal-header, .video-fluid {
   width: 50%;
+}
+
+
+.ti-search:before {
+  content: "\eb1c";
+  font-weight: 600 !important;
+}
+
+
+
+.post-article {
+  // background: var(--global-post-article-color);
+  box-shadow: 0 0rem .2rem 0 #14a5a633  !important;
+  padding-top: 25px;
 }

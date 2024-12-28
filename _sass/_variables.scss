@@ -24,13 +24,14 @@ $pink-color: #f92080 !default;
 $pink-color-light: #ffdddd !default;
 $yellow-color: #efcc00 !default;
 $teal-color:  #14A5A6 !default;
+$teal-light: #43b2cd47 !default;
 $light-teal-color: lighten($teal-color, 25%);
 $grey-color: #828282 !default;
 $grey-color-light: color.adjust($grey-color, $lightness: 40%);
 $grey-color-dark: #1c1c1d;
 $grey-900: #212529;
 
-$white-color: #ffffff !default;
+$white-color: #b2b2b3 !default;
 $black-color: #000000 !default;
 
 // Theme colors
@@ -54,23 +55,27 @@ $back-to-top-width: $back-to-top-diameter;
 
 
 // Blog Card Colors
-$blog-card-head-bg-light-color:rgba(198, 198, 198, 0.77) !important ;
+$blog-card-head-bg-light-color:rgba(39, 156, 177, 0.06) !important ;
+$blog-card-head-bg-dark-color:rgba(39, 156, 177, 0.06) !important ;
+
 $blog-card-head-font-light-color:rgba(2, 2, 2, 0.87) !important ;
-$blog-card-head-bg-dark-color:rgb(43, 43, 43) !important  ;
 $blog-card-head-font-dark-color:rgb(166, 166, 166) !important ;
 
 //Container Color
 $container-light-color: #e8e8e8 !default;
-$nav-light-color: #e8e8e8 !default;
-$bg-light-color: #d7d3d3 !default;
+$container-dark-color: #121212 !default;
 
-$container-dark-color: #202020 !default;
-$nav-dark-color: #202020 !default;
+$nav-light-color: #e8e8e8 !default;
+$nav-dark-color: #121212 !default;
+
+$bg-light-color: #d7d3d3 !default;
 $bg-dark-color: #292929 !default;
 
 $light-text-color: #222222 !default;
-$dark-text-color: #cacaca !default;
+$dark-text-color: #b2b2b3 !default;
 
+$tag-light-color: #43b2cd47 !default;
+$tag-dark-color: #43b2cd47 !default;
 
-$tag-light-color: #b6b6b691 !default;
-$tag-dark-color: #292929e3 !default;
+$post-article-light-color:  #4a4a4a0d !default;
+$post-article-dark-color: #4a4a4a0d !default;

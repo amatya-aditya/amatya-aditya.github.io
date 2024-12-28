@@ -4,6 +4,7 @@ title: Strain Transformation 1
 img: assets/images/ansys-simulation/wheel-rim/1 b.png
 pdf: FixedWinguav.pdf
 description: 
+introline: A Comprehensive area of research field in the domain of Mechanics. classical mechanics based on Newton’s laws of motion.
 date:  2024-12-19
 categories:
   - Solid Mechanics

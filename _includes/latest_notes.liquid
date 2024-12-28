@@ -8,7 +8,7 @@
       {% endif %}
     >
       <table class="table table-sm table-borderless">
-        {% assign latest_notes = site.research-notes %}
+        {% assign latest_notes = site.research-notes | sort: "date" | reverse %}
         {% if site.latest_notes.limit %}
           {% assign latest_notes_limit = site.latest_notes.limit %}
         {% else %}
@@ -19,18 +19,18 @@
             <th scope="row" style="width: 20%">{{ item.date | date: '%b %d, %Y' }}</th>
             <td>
               {% if item.redirect == blank %}
-                <a class="news-title" href="{{ item.url | relative_url }}">{{ item.title }} </a> | 
+                <a class="news-title" href="{{ item.url | relative_url }}">{{ item.title }} </a> | {{item.introline | truncate: 75}} | 
                 {% assign tags_count = item.tags | size %}
                 {% for tag in item.tags %}
-                  <span class="kanban-teal"> {{ tag }}</span>
-                {% endfor %}
+                  <span class=" tag tag-teal kanban-teal"> {{ tag }}</span>
+                {% endfor %} 
 
               {% elsif item.redirect contains '://' %}
-                <a class="news-title" href="{{ item.redirect }}" target="_blank">{{ item.title}} </a> | 
+                <a class="news-title" href="{{ item.redirect }}" target="_blank">{{ item.title}} </a> | {{item.introline | truncate: 75}} | 
                 {% assign tags_count = item.tags | size %}
                 {% for tag in item.tags %}
-                  <span class="kanban-teal"> {{ tag }}</span>
-                {% endfor %}
+                  <span class="tag tag-teal kanban-teal"> {{ tag }}</span>
+                {% endfor %} 
                 <svg width="2rem" height="2rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9"
@@ -44,11 +44,11 @@
                   ></path>
                 </svg>
               {% else %}
-                <a class="news-title" href="{{ item.redirect | relative_url }}">{{ item.title }} | 
+                <a class="news-title" href="{{ item.redirect | relative_url }}">{{ item.title }} | {{item.introline | truncate: 75}} | 
                 {% assign tags_count = item.tags | size %}
                 {% for tag in item.tags %}
-                  <span class="kanban-teal"> {{ tag }}</span>
-                {% endfor %}
+                  <span class=" tag tag-teal kanban-teal"> {{ tag }}</span>
+                {% endfor %} 
               {% endif %}
             </td>
           </tr>

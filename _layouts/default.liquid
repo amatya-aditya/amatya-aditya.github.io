@@ -20,50 +20,55 @@
     <!-- Header -->
     {% include header.liquid %}
 
-    <!-- Content -->
-  <div class="mid-container" role="main">
-    {% if page.toc and page.toc.sidebar %}
-      <div class="row">
-        <!-- Conditional Chapter Navigation -->
-        {% if page.chapter-navigation %}
-          <div class="col-sm-3">
-            {% include chapter-navigation.liquid %}
-          </div>
-        {% endif %}
-  
-        {% if page.toc.sidebar == 'right' %}
-          <!-- Main Content Area -->
-          <div class="col-sm-{% if page.chapter-navigation %}6{% else %}9{% endif %}">{{ content }}</div>
-          <!-- ToC Sidebar -->
-          <div class="col-sm-3">
-            <nav id="toc-sidebar" class="sticky-top"></nav>
-          </div>
-        {% else %}
-          <!-- ToC Sidebar -->
-          <div class="col-sm-3">
-            <nav id="toc-sidebar" class="sticky-top"></nav>
-          </div>
-          <!-- Main Content Area -->
-          <div class="col-sm-{% if page.chapter-navigation %}6{% else %}9{% endif %}">{{ content }}</div>
-        {% endif %}
-      </div>
-    {% else %}
-      <!-- No ToC -->
-      <div class="row">
-        {% if page.chapter-navigation %}
-          <!-- Chapter Navigation Sidebar -->
-          <div class="col-sm-3">
-            {% include chapter-navigation.liquid %}
-          </div>
-          <!-- Main Content Area -->
-          <div class="col-sm-9">{{ content }}</div>
-        {% else %}
-          <!-- Main Content Area Only -->
-          {{ content }}
-        {% endif %}
-      </div>
-    {% endif %}
-  </div>
+   <!-- Content -->
+<div class="mid-container" role="main">
+  {% if page.toc and page.toc.sidebar %}
+    <div class="row">
+      <!-- Conditional Chapter Navigation -->
+      {% if page.chapter-navigation %}
+        <div class="col-sm-3">
+          {% include chapter-navigation.liquid %}
+        </div>
+      {% endif %}
+
+      {% if page.toc.sidebar == 'right' %}
+        <!-- Main Content Area -->
+        <div class="post-article col-sm-{% if page.chapter-navigation %}6{% else %}9{% endif %}">{{ content }}</div>
+        <!-- ToC Sidebar -->
+        <div class="col-sm-3">
+          <nav id="toc-sidebar" class="sticky-top">
+            <h5 class="font-weight-bolder">Headings</h5>
+          </nav>
+        </div>
+      {% else %}
+        <!-- ToC Sidebar -->
+        <div class="col-sm-3">
+          <nav id="toc-sidebar" class="sticky-top">
+            <h5 class="font-weight-bolder">Headings</h5>
+          </nav>
+        </div>
+        <!-- Main Content Area -->
+        <div class="post-article col-sm-{% if page.chapter-navigation %}6{% else %}9{% endif %}">{{ content }}</div>
+      {% endif %}
+    </div>
+  {% else %}
+    <!-- No ToC -->
+    <div class="row">
+      {% if page.chapter-navigation %}
+        <!-- Chapter Navigation Sidebar -->
+        <div class="col-sm-3">
+          {% include chapter-navigation.liquid %}
+        </div>
+        <!-- Main Content Area -->
+        <div class="post-article col-sm-9">{{ content }}</div>
+      {% else %}
+        <!-- Main Content Area Only -->
+        {{ content }}
+      {% endif %}
+    </div>
+  {% endif %}
+</div>
+
 
     <!-- Footer -->
     {% include footer.liquid %}

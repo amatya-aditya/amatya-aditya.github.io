@@ -3,6 +3,7 @@ layout: post
 title: Carburetor
 img: assets/images/ansys-simulation/carburetor/volume-streamline.jpg
 description: The simulation of carburetor was performed to visualize the fluid flow in the perforated tube.
+introline: A Comprehensive area of research field in the domain of Mechanics. classical mechanics based on Newton’s laws of motion.
 date:  2021-01-12
 category: Computational Mechanics
 categories:

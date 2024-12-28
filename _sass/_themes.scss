@@ -38,6 +38,7 @@
   --global-primary-btn-bg-color: #{$blog-card-head-bg-light-color};
   --global-primary-btn-font-color: #{$blog-card-head-font-light-color};
   --global-tag-color: #{$tag-light-color};
+  --global-post-article-color: #{$post-article-light-color};
 
 
   --global-tip-block: #42b983;
@@ -89,7 +90,7 @@
 html[data-theme="dark"] {
   --global-bg-color: #{$grey-color-dark};
   --global-code-bg-color: #{$code-bg-color-dark};
-  --global-text-color: #{$grey-color-light};
+  --global-text-color: #{$dark-text-color};
   --global-text-color-light: #{$grey-color};
   --global-theme-color: #{$teal-color};
   --global-hover-color: #{$teal-color};
@@ -119,6 +120,7 @@ html[data-theme="dark"] {
   --global-primary-btn-bg-color: #{$blog-card-head-bg-dark-color};
   --global-primary-btn-font-color: #{$blog-card-head-font-dark-color};
   --global-tag-color: #{$tag-dark-color};
+  --global-post-article-color: #{$post-article-dark-color};
 
   --global-tip-block: #42b983;
   --global-tip-block-bg: #e2f5ec;

@@ -3,6 +3,7 @@ layout: post
 title: Crankshaft
 img: assets/images/ansys-simulation/crankshaft/forged-steel-3.jpg
 description: The crankshaft was simulated to observe the structural behavior under external loading.
+introline: A Comprehensive area of research field in the domain of Mechanics. classical mechanics based on Newton’s laws of motion.
 date:  2018-02-12
 location: 2n+1
 color: blue

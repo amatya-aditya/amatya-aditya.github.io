@@ -7,7 +7,7 @@
     padding: 4px 20px;
     font-size: 13px;
     font-weight: 500;
-    color: #767676
+    color: var(--global-text-color);
 }
 
 nav[data-toggle=ch-nav] .nav>li>a:focus,

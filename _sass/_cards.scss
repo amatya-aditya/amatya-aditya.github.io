@@ -58,7 +58,7 @@
 
 .blog-card-head {
   border-radius: 4px;
-  box-shadow: 0 0px 1px rgba(0,0,0,.5);
+  box-shadow: 0 0px 1px rgba(23, 195, 213, 0.5);
   overflow: hidden;
   // transition: 0.3 ease;
   width: 280px;
@@ -110,7 +110,7 @@
 }
 
 .tag-teal {
-  background-color: $teal-color;
+  background-color: $teal-light;
   margin-bottom: 8px;
 }
 .tag-purple {

@@ -3,6 +3,9 @@
  ******************************************************************************/
 
 // Typography
+body{
+  font-weight: 400;
+}
 
 p,
 h1,
@@ -28,10 +31,11 @@ table {
   th {
     font-size: 1rem;
     padding: 1px 1rem 1px 0;
+    font-weight: 400;
   }
 
   th {
-    font-weight: bold;
+    font-weight: bolder;
   }
 }
 

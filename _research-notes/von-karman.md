@@ -4,6 +4,7 @@ title: Von Kármán vortex
 img: assets/images/ansys-simulation/vonKarman/vonKarman2.gif
 video: assets/images/ansys-simulation/vonKarman/vonKarman-2.mp4
 description: The fluid flow over cylinder was observed at different Reynolds number ranging from 5 to 3.5e6. The effect of Reynolds number was analyzed to observe the behavior of von karman street over different flow regimes.
+introline: A Comprehensive area of research field in the domain of Mechanics. classical mechanics based on Newton’s laws of motion.
 date:  2021-08-18
 importance: 1
 categories:

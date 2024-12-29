@@ -1,10 +1,10 @@
 ---
+layout: post-small-width
 title: A Cool way to handle Images in your Research Notes.
 thumbnail: assets/images/obsidian-image-slider.png
 description: Make your research notes fun and efficient in obsidian.
 date: 2023-11-04
 author: Aditya A
-layout: post
 categories:
     - coding
 tags:
@@ -12,7 +12,7 @@ tags:
     - coding
 
 permalink: /obsidian-image-slider/
-
+image: assets/images/obsidian-image-slider.png
 ---
 
 

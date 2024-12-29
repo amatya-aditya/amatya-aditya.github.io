@@ -1,11 +1,12 @@
 .mid-container {
     color: var(--global-footer-text-color);
-    padding-top: 9px;
+    padding-top: 0;
     padding-bottom: 8px;
   }
 
 div.post {
-    width: 100%
+    width: 100%;
+    margin: 0 auto;
 }
 
 .sticky-top {
@@ -82,6 +83,7 @@ ninja-keys::part(ninja-input-wrapper) {
 
 .post-header {
   text-align: center !important;
+  margin-top: 20px;
 }
 
 .btn-primary:hover {
@@ -116,6 +118,6 @@ ninja-keys::part(ninja-input-wrapper) {
 
 .post-article {
   // background: var(--global-post-article-color);
-  box-shadow: 0 0rem .2rem 0 #14a5a633  !important;
-  padding-top: 25px;
+  // box-shadow: 0 0rem .2rem 0 #14a5a633  !important;
+  // padding: 12px 22px;
 }

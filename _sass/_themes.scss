@@ -39,7 +39,7 @@
   --global-primary-btn-font-color: #{$blog-card-head-font-light-color};
   --global-tag-color: #{$tag-light-color};
   --global-post-article-color: #{$post-article-light-color};
-
+  --global-text-dark-color: #{$dark-text-light-color};
 
   --global-tip-block: #42b983;
   --global-tip-block-bg: #e2f5ec;
@@ -121,6 +121,8 @@ html[data-theme="dark"] {
   --global-primary-btn-font-color: #{$blog-card-head-font-dark-color};
   --global-tag-color: #{$tag-dark-color};
   --global-post-article-color: #{$post-article-dark-color};
+  --global-text-dark-color: #{$dark-text-dark-color};
+
 
   --global-tip-block: #42b983;
   --global-tip-block-bg: #e2f5ec;

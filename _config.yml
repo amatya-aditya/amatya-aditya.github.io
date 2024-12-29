@@ -85,7 +85,7 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # -----------------------------------------------------------------------------
 
 blog_name: BLOG # blog_name will be displayed in your blog page
-blog_description: 
+blog_description: A little bit of everything I find interesting, curious about, or just feel like sharing.
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 
@@ -157,17 +157,17 @@ collections:
 announcements:
   enabled: true
   scrollable: true # adds a vertical scroll bar if there are more than 3 news items
-  limit: 5 # leave blank to include all the news in the `_news` folder
+  limit: 3 # leave blank to include all the news in the `_news` folder
 
 latest_posts:
   enabled: true
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
-  limit: 3 # leave blank to include all the blog posts
+  limit: 4 # leave blank to include all the blog posts
 
 latest_notes:
   enabled: true
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
-  limit: 7 # leave blank to include all the blog posts
+  limit: 4 # leave blank to include all the blog posts
 
 # -----------------------------------------------------------------------------
 # Jekyll settings
@@ -356,22 +356,22 @@ external_links:
 
 # MAKE SURE imagemagick is installed and on your PATH before enabling imagemagick. In a terminal, run:
 #   convert -version
-imagemagick:
-  enabled: true # enables responsive images for your site (recommended, see https://github.com/alshedivat/al-folio/issues/537)
-  widths:
-    - 480
-    - 800
-    - 1400
-  input_directories:
-    - assets/img/
-  input_formats:
-    - ".jpg"
-    - ".jpeg"
-    - ".png"
-    - ".tiff"
-    - ".gif"
-  output_formats:
-    webp: "-quality 85"
+# imagemagick:
+#   enabled: true # enables responsive images for your site (recommended, see https://github.com/alshedivat/al-folio/issues/537)
+#   widths:
+#     - 480
+#     - 800
+#     - 1400
+#   input_directories:
+#     - assets/img/
+#   input_formats:
+#     - ".jpg"
+#     - ".jpeg"
+#     - ".png"
+#     - ".tiff"
+#     - ".gif"
+#   output_formats:
+#     webp: "-quality 85"
 
 # Lazy loading images
 #   If you enable lazy loading, all images will add the loading="lazy" attribute.

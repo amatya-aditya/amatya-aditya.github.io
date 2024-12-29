@@ -171,7 +171,7 @@ ul.task-list input[type="checkbox"] {
 // Card
 
 .card {
-  background-color: var(--global-card-bg-color);
+  background-color: var(--global-blog-card-bg-color);
 
   .card-img {
     width: 100%;
@@ -485,8 +485,8 @@ footer.fixed-bottom {
 
   .container {
     // color: var(--global-footer-text-color);
-    padding-top: 9px;
-    padding-bottom: 8px;
+    padding-top: 16px;
+    padding-bottom: 16px;
     text-align: center;
   }
 
@@ -556,19 +556,21 @@ footer.sticky-bottom {
 .header-bar {
   border-bottom: 1px solid var(--global-divider-color);
   text-align: center;
-  padding-top: 2rem;
-  padding-bottom: 3rem;
+  // padding-top: 2rem;
+  padding-bottom: 0.5rem;
 
   h1 {
     color: var(--global-theme-color);
-    font-size: 5rem;
+    font-size: 3rem;
   }
 }
 
 .tag-category-list {
   border-bottom: 1px solid var(--global-divider-color);
   text-align: center;
-  padding-top: 1rem;
+  // padding-top: 1rem;
+  max-height: 100px;
+    height: 60px;
 
   ul {
     justify-content: center;
@@ -1115,6 +1117,7 @@ nav[data-toggle="toc"] {
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      margin-bottom: 0px !important;
     }
 
     &:hover {

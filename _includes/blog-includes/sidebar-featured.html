@@ -1,0 +1,22 @@
+<div class="sticky-top sticky-top-offset">
+    <h4 class="font-weight-bold spanborder"><span>Featured</span></h4>  
+    <ol class="list-featured">				
+        {% for post in site.tags.featured %}                
+            <li class="mb-4">
+            <span>
+                <h6 class="font-weight-bold">
+                    <a href="{{site.baseurl}}{{ post.url }}" class="text-dark">{{ post.title }}</a>
+                </h6>
+                <p class="post-meta">
+                    {{ read_time }} min read &nbsp; &middot; &nbsp;
+                    <i class="ti-solid ti ti-calendar"></i> {{ post.date | date: '%B %d, %Y' }}
+                    {% if post.external_source %}
+                    &nbsp; &middot; &nbsp; {{ post.external_source }}
+                    {% endif %}
+                
+                </p>
+            </span>
+            </li>                
+        {% endfor %}   
+    </ol>
+</div> 

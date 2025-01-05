@@ -1,7 +1,7 @@
 ---
 created: 2024-12-27T17:14
-updated: 2025-01-04T22:02
-layout: post-small-width
+updated: 2025-01-05T15:12
+layout: post
 share: true
 share_folder: _research-notes
 title: 

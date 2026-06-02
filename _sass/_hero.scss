@@ -1,0 +1,234 @@
+/*******************************************************************************
+ * Profile hero — banner + overlapping avatar + identity + quick links.
+ * Used on the about/landing page. Reads design tokens from _themes.scss.
+ ******************************************************************************/
+
+.hero {
+  margin-bottom: 2.25rem;
+}
+
+.hero-banner {
+  height: clamp(150px, 22vw, 250px);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: var(--radius-xs);
+  box-shadow: var(--shadow-sm);
+}
+
+// Two columns: left = avatar + name + role; right = links + meta rows.
+.hero-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  padding: 0 0.5rem;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.9rem;
+  margin-top: 0.6rem;
+}
+
+.hero-avatar {
+  width: clamp(116px, 15vw, 150px);
+  aspect-ratio: 1 / 1;
+  margin-top: clamp(-92px, -10vw, -68px);
+  border-radius: 50%;
+  border: 4px solid var(--global-container-color);
+  background: var(--global-container-color);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  position: relative;
+  // Center the name under the avatar
+  align-self: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.hero-name {
+  margin: 0.75rem 0 0.1rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.hero-headline {
+  color: var(--global-text-color-light);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  margin-bottom: 0;
+  text-align: center;
+
+  .role {
+    color: var(--global-theme-color);
+    font-weight: 600;
+  }
+  a {
+    color: var(--global-theme-color);
+    font-weight: 600;
+    text-decoration: none;
+    &:hover { text-decoration: underline; }
+  }
+}
+
+// Inline meta rows (location, education) — right column, under the links
+.hero-meta {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding-right: 1.2rem;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-sans);
+    font-size: 0.92rem;
+    color: var(--global-text-color-light);
+  }
+
+  i {
+    color: var(--global-theme-color);
+    width: 1rem;
+    text-align: center;
+    flex: 0 0 auto;
+  }
+}
+
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+// On narrow screens, stack the right column under the left, left-aligned.
+@media (max-width: 620px) {
+  .hero-right {
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 0.4rem;
+  }
+  .hero-links {
+    justify-content: flex-start;
+  }
+}
+
+.hero-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.42rem 0.9rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 50px;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--global-text-color) !important;
+  text-decoration: none !important;
+  transition: border-color 0.16s ease, background-color 0.16s ease, transform 0.16s ease;
+
+  i {
+    font-size: 1em;
+    color: var(--global-theme-color);
+  }
+
+  &:hover {
+    border-color: var(--global-theme-color);
+    background: var(--global-tag-color);
+    transform: translateY(-1px);
+  }
+}
+
+// On very small screens, let labels hide if cramped (icons remain)
+@media (max-width: 360px) {
+  .hero-link span {
+    display: none;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+ * About content treatment (research statement, interests, note)
+ * -------------------------------------------------------------------------- */
+
+// Elevated research statement — the line that gives the page its voice
+.lead-statement {
+  font-family: var(--font-serif);
+  font-size: clamp(0.98rem, 1.3vw, 1.08rem);
+  line-height: 1.5;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--global-text-color-light);
+  border-left: 3px solid var(--global-theme-color);
+  padding-left: 1.1rem;
+  margin: 1.6rem 0 1.6rem;
+  max-width: 78vw;
+}
+
+// Small uppercase section label
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--global-text-color-light);
+  margin: 0 0 0.85rem;
+}
+
+// Refined interest chips — academic, no checkmarks
+.interest-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  padding: 0;
+  margin: 0 0 2rem;
+  list-style: none;
+
+  li {
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--global-text-color);
+    background: var(--global-card-bg-color);
+    border: 1px solid var(--global-divider-color);
+    border-radius: var(--radius-xs);
+    padding: 0.35rem 0.8rem;
+    transition: border-color 0.16s ease, color 0.16s ease;
+
+    &:hover {
+      border-color: var(--global-theme-color);
+      color: var(--global-theme-color);
+    }
+  }
+}
+
+// Quiet personal note
+.hero-note {
+  color: var(--global-text-color-light);
+  font-size: 0.98rem;
+  max-width: var(--measure);
+
+  a { color: var(--global-theme-color); }
+}

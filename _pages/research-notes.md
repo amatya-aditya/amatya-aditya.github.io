@@ -8,22 +8,22 @@ nav_order: 3
 display_categories: [Mathematics, Solid Mechanics, Computational Mechanics, Numerical Methods, Fracture Mechanics, Finite Element Methods]
 ---
 
-<!-- pages/projects.md -->
+<!-- pages/research-notes.md -->
 
-<h4 style = "font-weight:500;text-align:center;padding-bottom:8px;"> Engineering Insights: Study Notes and Conceptual Summaries </h4>
-
-<p style = "text-align:center;padding-bottom:8px;"> These research notes are like my personal summaries from different books and articles I've read. They cover important ideas, explanations, basic principles, derivations, formulas and examples from my studies. </p>
+<div class="notes-intro">
+  <p class="notes-intro__lead">Personal summaries from the books and articles I read: key ideas, principles, derivations, formulas, and worked examples from my studies.</p>
+</div>
 
 
 <div class="blog__categories">
   <div class="container">
 
   {%- if site.enable_project_categories and page.display_categories %}
-    <div class="button-group filter-button-group text-center" style="margin-bottom: 40px">
+    <div class="button-group filter-button-group note-filters">
+      <a class="all-link note-filter active" href="#">All</a>
       {%- for category in page.display_categories %}
-        <a class="category-link btn btn-sm btn-primary" data-category=".{{category | downcase}}" href="#">{{category | replace: "-", " "}}</a>
+        <a class="category-link note-filter" data-category=".{{category | downcase}}" href="#">{{category | replace: "-", " "}}</a>
       {%- endfor %}
-      <a class=" all-link btn btn-sm btn-primary active" href="#">All</a> 
   </div>
 </div>
   {%- endif -%}

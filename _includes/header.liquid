@@ -119,9 +119,11 @@
           {% endfor %}
           {% if site.search_enabled %}
             <!-- Search -->
-            <li class="nav-item">
-              <button id="search-toggle" title="Search" onclick="openSearchModal()">
-                <span class="nav-link font-weight-bolder ">Ctrl+K <i class="ti ti-search"></i></span>
+            <li class="nav-item nav-item--search">
+              <button id="search-toggle" class="nav-search" title="Search" onclick="openSearchModal()">
+                <i class="ti ti-search" aria-hidden="true"></i>
+                <span class="nav-search__label">Search</span>
+                <kbd class="nav-search__kbd">Ctrl K</kbd>
               </button>
             </li>
           {% endif %}

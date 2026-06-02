@@ -1,49 +1,122 @@
 /*******************************************************************************
- * Variables used throughout the theme.
- * To adjust anything, simply edit the variables below and rebuild the theme.
+ * Design tokens — single source of truth for the whole site.
+ *
+ * Philosophy: a neutral ink-on-paper base + ONE accent (slate teal).
+ * Change $accent below to re-skin the entire site.
+ * Legacy variable names are preserved so existing components keep working;
+ * their VALUES now come from the coherent scales defined here.
  ******************************************************************************/
 
 @use "sass:color";
 
-// Colors
-$red-color: #ff3636 !default;
-$red-color-dark: #b71c1c !default;
-$orange-color: #f29105 !default;
-$blue-color: #0076df !default;
-$blue-color-dark: #00369f !default;
-$cyan-color: #2698ba !default;
-$light-cyan-color: color.adjust($cyan-color, $lightness: 25%);
-$green-color: #00ab37 !default;
-$green-color-lime: #b7d12a !default;
-$green-color-dark: #009f06 !default;
-$green-color-light: #ddffdd !default;
-$green-color-bright: #11d68b !default;
-$purple-color: #b509ac !default;
-$light-purple-color: color.adjust($purple-color, $lightness: 25%);
-$pink-color: #f92080 !default;
-$pink-color-light: #ffdddd !default;
-$yellow-color: #efcc00 !default;
-$teal-color:  #14A5A6 !default;
-$teal-light: #43b2cd47 !default;
-$light-teal-color: lighten($teal-color, 25%);
-$grey-color: #828282 !default;
-$grey-color-light: color.adjust($grey-color, $lightness: 40%);
-$grey-color-dark: #1c1c1d;
-$grey-900: #212529;
+// -----------------------------------------------------------------------------
+// 1. Accent — the ONLY place the brand color is written as a hex.
+//    Every other shade is derived from it with color math, so changing this
+//    single value re-skins the whole site.
+// -----------------------------------------------------------------------------
+$accent: #0f766e !default; // ← change THIS to re-skin everything
 
-$white-color: #b2b2b3 !default;
-$black-color: #000000 !default;
+// Derived shades (do not hardcode — they follow $accent automatically)
+$accent-strong:       color.adjust($accent, $lightness: -7%) !default;            // hover / pressed (darker)
+$accent-soft:         color.mix($accent, white, 12%) !default;                    // pale tint on light backgrounds
+$accent-light:        color.adjust($accent, $lightness: 26%, $saturation: 4%) !default; // brighter accent for dark backgrounds
+$accent-light-strong: color.adjust($accent-light, $lightness: 12%) !default;      // hover on dark
+$accent-deep:         color.adjust($accent, $lightness: -14%) !default;           // dark-teal text on tints
 
-// Theme colors
+// -----------------------------------------------------------------------------
+// 2. Neutral scale (paper → ink). Slightly cool/neutral grey.
+// -----------------------------------------------------------------------------
+$n-0:   #ffffff !default; // pure paper
+$n-50:  #fafafa !default;
+$n-100: #f4f4f5 !default;
+$n-200: #e5e7eb !default; // hairline borders
+$n-300: #d4d4d8 !default;
+$n-400: #a1a1aa !default;
+$n-500: #71717a !default; // muted text
+$n-600: #52525b !default;
+$n-700: #3f3f46 !default;
+$n-800: #27272a !default;
+$n-900: #18181b !default;
 
-$code-bg-color-light: rgba($purple-color, 0.05);
-$code-bg-color-dark: #2c3237 !default;
+// Dark-mode surfaces
+$d-bg:        #0f1115 !default; // page "desk"
+$d-surface:   #16181d !default; // content sheet
+$d-surface-2: #1c1f26 !default; // cards
+$d-border:    #2a2e37 !default;
+$d-text:      #c8cdd6 !default; // softer off-white — easier for long reading
+$d-text-muted:#9098a4 !default;
 
-// Font awesome location
+// -----------------------------------------------------------------------------
+// 3. Feedback colors (callouts) — muted, consistent saturation
+// -----------------------------------------------------------------------------
+$tip:     $accent !default; // tip callouts reuse the brand accent
+$warning: #b45309 !default;
+$danger:  #b91c1c !default;
+
+// -----------------------------------------------------------------------------
+// 4. Legacy aliases — kept so existing _sass partials still compile.
+//    Remapped onto the scales above.
+// -----------------------------------------------------------------------------
+$teal-color:      $accent !default;
+$teal-light:      $accent-soft !default;
+$light-teal-color:$accent-light !default;
+$white-color:     $n-0 !default;     // was #b2b2b3 (a grey!) — now real white
+$black-color:     #000000 !default;
+$grey-color:      $n-500 !default;
+$grey-color-light:$n-200 !default;
+$grey-color-dark: $n-900 !default;
+$grey-900:        $n-900 !default;
+
+$red-color-dark:  $danger !default;
+
+// Code background — neutral, not purple
+$code-bg-color-light: $n-100 !default;
+$code-bg-color-dark:  $d-surface-2 !default;
+
+// Surfaces (light)
+$container-light-color: $n-0  !default;  // content sheet = white paper
+$nav-light-color:       $n-0  !default;
+$bg-light-color:        $n-100 !default; // page desk behind the sheet
+$light-text-color:      #1f2328 !default;
+$dark-text-light-color: #1f2328 !default;
+
+// Surfaces (dark)
+$container-dark-color: $d-surface !default;
+$nav-dark-color:       $d-surface-2 !default; // lighter than the page so the bar reads as elevated
+$bg-dark-color:        $d-bg !default;
+$dark-text-color:      $d-text !default;
+$dark-text-dark-color: $d-text !default;
+
+// Tags
+$tag-light-color: $accent-soft !default;
+$tag-dark-color:  rgba($accent-light, 0.16) !default;
+
+// Blog cards
+$blog-card-head-bg-light-color:   $n-50 !default;
+$blog-card-head-bg-dark-color:    $d-surface-2 !default;
+$blog-card-head-font-light-color: $light-text-color !default;
+$blog-card-head-font-dark-color:  $d-text !default;
+
+// Post article subtle surface
+$post-article-light-color: $n-50 !default;
+$post-article-dark-color:  $d-surface-2 !default;
+
+// -----------------------------------------------------------------------------
+// 5. Typography — font stacks (used by the type system in a later step)
+// -----------------------------------------------------------------------------
+$font-serif: "Source Serif 4", "Source Serif Pro", Charter, "Iowan Old Style",
+  Georgia, Cambria, "Times New Roman", Times, serif !default;
+$font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  "Helvetica Neue", Arial, sans-serif !default;
+$font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, "Liberation Mono",
+  Menlo, monospace !default;
+
+// -----------------------------------------------------------------------------
+// 6. Asset paths & misc (unchanged)
+// -----------------------------------------------------------------------------
 $fa-font-path: "../webfonts";
-
-// Tabler icons location
 $ti-font-path: "../fonts";
+$ti-font-display: block; // reserve the icon-font glyph box (no tofu flash during load)
 
 // Back To Top button config
 $back-to-top-z-index: 10;
@@ -52,33 +125,3 @@ $back-to-top-right: 30px;
 $back-to-top-diameter: 40px;
 $back-to-top-height: $back-to-top-diameter;
 $back-to-top-width: $back-to-top-diameter;
-
-
-// Blog Card Colors
-$blog-card-head-bg-light-color:rgba(39, 156, 177, 0.06) !important ;
-$blog-card-head-bg-dark-color:rgba(39, 156, 177, 0.06) !important ;
-
-$blog-card-head-font-light-color:rgba(2, 2, 2, 0.87) !important ;
-$blog-card-head-font-dark-color:rgb(166, 166, 166) !important ;
-
-//Container Color
-$container-light-color: #e8e8e8 !default;
-$container-dark-color: #121212 !default;
-
-$nav-light-color: #e8e8e8 !default;
-$nav-dark-color: #121212 !default;
-
-$bg-light-color: #d7d3d3 !default;
-$bg-dark-color: #292929 !default;
-
-$light-text-color: #222222 !default;
-$dark-text-color: #b2b2b3 !default;
-
-$tag-light-color: #43b2cd47 !default;
-$tag-dark-color: #43b2cd47 !default;
-
-$post-article-light-color:  #4a4a4a0d !default;
-$post-article-dark-color: #4a4a4a0d !default;
-
-$dark-text-light-color: #212121 !default;
-$dark-text-dark-color: #b2b2b3 !default;

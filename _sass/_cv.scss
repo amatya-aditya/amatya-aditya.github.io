@@ -175,7 +175,7 @@ span.badge-toc {
   padding: 0.125rem 0.5rem 0.125rem 0.5rem;
   font-weight: 700 !important;
   display: inline-block;
-  inline-size: fit-content;
+  inline-size: -webkit-fill-available;
 }
 
 ul.timeline li::before {

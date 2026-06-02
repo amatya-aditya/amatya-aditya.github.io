@@ -1,0 +1,245 @@
+/*******************************************************************************
+ * Research note reading view — Obsidian-style 3 columns:
+ * left = notes nav, center = content, right = live table of contents.
+ ******************************************************************************/
+
+// Notes use a slightly wider sheet so the side panes fit 2–3 word titles.
+// Overriding --content-max (not just the container) means the navbar and footer
+// widen to match automatically — width stays driven by a single variable.
+body.note-page {
+  --content-max: min(94vw, 1270px);
+}
+body.note-page .mid-container {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.note-layout {
+  display: grid;
+  // Wider sidebars (fit longer titles); center stays ~715px.
+  grid-template-columns: 230px minmax(0, 1fr) 220px;
+  gap: 1.75rem;
+  align-items: start;
+  padding-top: 1.5rem; // breathing room below the navbar
+}
+
+$note-sticky-top: 80px; // below the fixed navbar (62px) + breathing room
+
+// --- Shared sidebar behaviour (left + right) ---
+.note-sidebar,
+.note-toc {
+  position: sticky;
+  top: $note-sticky-top;
+  max-height: calc(100vh - #{$note-sticky-top} - 1rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  font-family: var(--font-sans);
+  // Minimal themed scrollbar: no track/buttons; thumb only appears on hover.
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  &:hover { scrollbar-color: var(--global-divider-color) transparent; }
+  &::-webkit-scrollbar { width: 8px; height: 8px; }
+  &::-webkit-scrollbar-track { background: transparent; }
+  &::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+  &:hover::-webkit-scrollbar-thumb { background: var(--global-divider-color); background-clip: padding-box; }
+  &::-webkit-scrollbar-thumb:hover { background: var(--global-text-color-light); background-clip: padding-box; }
+}
+
+// --- LEFT: notes navigation ---
+.note-sidebar {
+  border-right: 1px solid var(--global-divider-color);
+  padding-right: 1rem;
+}
+
+// Collapsible folder header with a rotating chevron (Obsidian-style)
+.note-folder {
+  margin: 0 0 0.15rem;
+}
+
+.note-folder__label {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  cursor: pointer;
+  list-style: none; // remove default <summary> marker
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--global-text-color);
+  padding: 0.3rem 0.3rem;
+  border-radius: var(--radius-xs);
+  -webkit-user-select: none;
+  user-select: none;
+
+  &:hover { background: var(--global-code-bg-color); }
+
+  &::-webkit-details-marker { display: none; }
+
+  // Chevron
+  &::before {
+    content: "";
+    width: 0.42rem;
+    height: 0.42rem;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(-45deg);
+    transition: transform 0.15s ease;
+    flex: 0 0 auto;
+    margin-left: 0.1rem;
+  }
+}
+.note-folder[open] > .note-folder__label::before {
+  transform: rotate(45deg);
+}
+
+// Items indented under a vertical guide line (Obsidian outline)
+.note-folder__items {
+  list-style: none;
+  margin: 0.4rem 0 0;
+  padding: 0 0 0 0.85rem;
+  margin-left: 0.35rem;
+  border-left: 1px solid var(--global-divider-color);
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+
+  a {
+    display: block;
+    padding: 0.3rem 0.55rem;
+    border-radius: var(--radius-xs);
+    font-size: 0.86rem;
+    line-height: 1.35;
+    color: var(--global-text-color-light);
+    text-decoration: none;
+    transition: background-color 0.15s ease, color 0.15s ease;
+
+    &:hover {
+      background: var(--global-code-bg-color);
+      color: var(--global-text-color);
+    }
+    &.active {
+      background: var(--global-tag-color);
+      color: var(--global-theme-color);
+      font-weight: 600;
+    }
+  }
+}
+
+// --- CENTER: content ---
+.note-main {
+  min-width: 0;
+}
+
+.note-head {
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--global-divider-color);
+}
+
+.note-head__title {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.7rem, 3.4vw, 2.3rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.note-head__meta {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--global-text-color-light);
+  margin: 0;
+
+  .ti { color: var(--global-theme-color); }
+}
+
+.note-head__desc {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--global-text-color-light);
+  margin: 0.75rem 0 0;
+  max-width: var(--measure);
+}
+
+// Comfortable reading rhythm inside the note (Obsidian-like spacing)
+.note-main .post-content {
+  font-size: 1rem;
+  line-height: 1.75;
+
+  h2 { margin-top: 2.2rem; }
+  h3 { margin-top: 1.6rem; }
+  > p,
+  > ul,
+  > ol { margin-bottom: 1.15rem; }
+
+  // Let content use the full (wider) note column instead of the global
+  // reading measure — better for STEM notes with figures and formulae.
+  p, ul, ol, blockquote {
+    max-width: none;
+  }
+}
+
+// --- RIGHT: table of contents ---
+.note-toc .eyebrow {
+  margin-bottom: 0.7rem;
+}
+
+.note-toc ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 1px solid var(--global-divider-color);
+}
+
+.note-toc li {
+  margin: 0;
+}
+
+.note-toc a {
+  display: block;
+  padding: 0.28rem 0 0.28rem 0.85rem;
+  margin-left: -1px;
+  border-left: 2px solid transparent;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--global-text-color-light);
+  text-decoration: none;
+  transition: color 0.15s ease, border-color 0.15s ease;
+
+  &:hover { color: var(--global-text-color); }
+
+  &.is-active {
+    color: var(--global-theme-color);
+    border-left-color: var(--global-theme-color);
+    font-weight: 600;
+  }
+}
+
+.note-toc .toc-h3 a {
+  padding-left: 1.7rem;
+  font-size: 0.78rem;
+}
+
+// --- Responsive: drop TOC, then the nav ---
+@media (max-width: 1100px) {
+  .note-layout {
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: 2rem;
+  }
+  .note-toc { display: none; }
+}
+
+@media (max-width: 768px) {
+  .note-layout {
+    grid-template-columns: 1fr;
+  }
+  .note-sidebar {
+    display: none;
+  }
+}

@@ -14,32 +14,34 @@
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  width: 940px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.75rem;
+  width: 100%;
+  max-width: 100%;
   margin: auto;
 }
 
 .blog-card {
-  border-radius: 10px;
-  box-shadow: 0 1px 2px var(--global-theme-color);
+  border-radius: var(--radius);
+  border: 1px solid var(--global-divider-color);
+  background-color: var(--global-card-bg-color);
+  box-shadow: var(--shadow-sm);
   overflow: hidden;
-  width: 260px;
-  transition: 0.5 ease;
+  width: 100%;
   cursor: pointer;
-  transition: 0.5s ease-in
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
 .blog-card:hover {
-  transition:0.5s ease-out;
-//   transform: scale(1.);
-  box-shadow: 0 2px 5px var(--global-theme-color);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+  border-color: var(--global-theme-color);
 }
 
 .card-header {
   padding: 0px!important;
   margin-bottom: 0;
-  background-color: rgba(0, 0, 0, .03);
-  border-bottom: 0px solid rgba(0, 0, 0, .125) !important;
+  background-color: var(--global-code-bg-color);
+  border-bottom: 0 !important;
 }
 
 .card-header img {
@@ -57,11 +59,10 @@
 }
 
 .blog-card-head {
-  border-radius: 4px;
-  box-shadow: 0 0px 1px rgba(23, 195, 213, 0.5);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--global-divider-color);
   overflow: hidden;
-  // transition: 0.3 ease;
-  width: 280px;
+  width: 100%;
   cursor: pointer;
   // transition: 0.1s ease-in;
   background-color: var(--global-blog-card-color);
@@ -99,25 +100,26 @@
 }
 
 .tag {
-  background: #777;
+  background: var(--global-tag-color);
+  color: var(--global-theme-color);
   border-radius: 50px;
-  font-size: 10px;
-  font-weight: 400;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
   margin: 0;
-  color: #1c1c1c;
-  padding: 2px 10px;
+  padding: 0.15rem 0.6rem;
   text-transform: uppercase;
 }
 
 .tag-teal {
-  background-color: $teal-light;
+  background-color: var(--global-tag-color);
+  color: var(--global-theme-color);
   margin-bottom: 8px;
 }
-.tag-purple {
-  background-color: #3d1d94;
-}
+.tag-purple,
 .tag-pink {
-  background-color: #c62bcb;
+  background-color: var(--global-tag-color);
+  color: var(--global-theme-color);
 }
 
 .card-main h4 {
@@ -141,7 +143,7 @@
   margin: 0;
 }
 .user-info small {
-  color: #888785;
+  color: var(--global-text-color-light);
 }
 
 @media (max-width: 940px) {

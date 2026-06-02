@@ -7,7 +7,7 @@ first_name: Aditya
 middle_name: 
 last_name: Amatya
 contact_note: >
-  Hit me up at aza0381@auburn.edu—let’s turn ideas into something extraordinary!
+  Hit me up at aza0381@auburn.edu! Let’s turn ideas into something extraordinary!
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   An academic Website
 footer_text: >
@@ -18,6 +18,13 @@ icon: favicon.ico # the emoji used as the favicon (alternatively, provide image 
 
 url: https://amatya-aditya.github.io # the base hostname & protocol for your site
 baseurl: # the subpath of your site, e.g. /blog/. Leave blank for root
+
+# Local dev server (only affects `jekyll serve`; ignored by GitHub Pages).
+# Port 4000 falls inside a Windows reserved range on this machine (Errno::EACCES),
+# so we default to 4200, which is outside every reserved range.
+host: 127.0.0.1
+port: 4200
+
 last_updated: false # set to true if you want to display last updated in the footer
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
 back_to_top: true # set to false to disable the back to top button
@@ -84,7 +91,7 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: BLOG # blog_name will be displayed in your blog page
+blog_name: Blog # blog_name will be displayed in your blog page
 blog_description: A little bit of everything I find interesting, curious about, or just feel like sharing.
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
@@ -240,6 +247,14 @@ defaults:
 
 sass:
   style: compressed
+  # Silence Dart Sass deprecation noise from al-folio's vendored stylesheets.
+  quiet_deps: true # hides warnings from dependencies (font-awesome, tabler-icons)
+  silence_deprecations: # hides specific deprecations triggered by our @import structure
+    - import
+    - global-builtin
+    - if-function
+    - color-functions
+    - mixed-decls
 
 # -----------------------------------------------------------------------------
 # Jekyll Minifier
@@ -356,22 +371,22 @@ external_links:
 
 # MAKE SURE imagemagick is installed and on your PATH before enabling imagemagick. In a terminal, run:
 #   convert -version
-imagemagick:
-  enabled: true # enables responsive images for your site (recommended, see https://github.com/alshedivat/al-folio/issues/537)
-  widths:
-    - 480
-    - 800
-    - 1400
-  input_directories:
-    - assets/img/
-  input_formats:
-    - ".jpg"
-    - ".jpeg"
-    - ".png"
-    - ".tiff"
-    - ".gif"
-  output_formats:
-    webp: "-quality 85"
+# imagemagick:
+#   enabled: true # enables responsive images for your site (recommended, see https://github.com/alshedivat/al-folio/issues/537)
+#   widths:
+#     - 480
+#     - 800
+#     - 1400
+#   input_directories:
+#     - assets/img/
+#   input_formats:
+#     - ".jpg"
+#     - ".jpeg"
+#     - ".png"
+#     - ".tiff"
+#     - ".gif"
+#   output_formats:
+#     webp: "-quality 85"
 
 # Lazy loading images
 #   If you enable lazy loading, all images will add the loading="lazy" attribute.
@@ -450,7 +465,7 @@ third_party_libraries:
     version: "5.5.0"
   google_fonts:
     url:
-      fonts: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&display=swap"
+      fonts: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons&display=swap"
   highlightjs:
     integrity:
       css:

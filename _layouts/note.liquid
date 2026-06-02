@@ -1,0 +1,148 @@
+---
+layout: default
+---
+{% if page._styles %}
+  <style type="text/css">
+    {{ page._styles }}
+  </style>
+{% endif %}
+
+<div class="note-layout">
+  <!-- LEFT: notes navigation -->
+  <aside class="note-sidebar">
+    <nav class="note-tree" aria-label="Research notes">
+      {%- comment -%} Notes ordered by `chapter` front matter (within each folder) {%- endcomment -%}
+      {%- assign all_notes = site.research-notes | sort: "chapter" -%}
+
+      {%- comment -%} Folder of the current note (subdir under _research-notes/) {%- endcomment -%}
+      {%- assign cur_segs = page.path | split: '/' -%}
+      {%- if cur_segs.size > 2 -%}{%- assign cur_folder = cur_segs[1] -%}{%- else -%}{%- assign cur_folder = 'general' -%}{%- endif -%}
+
+      {%- comment -%} Collect the unique folder names, auto-detected from paths {%- endcomment -%}
+      {%- assign folder_keys = "" -%}
+      {%- for n in all_notes -%}
+        {%- assign segs = n.path | split: '/' -%}
+        {%- if segs.size > 2 -%}{%- assign f = segs[1] -%}{%- else -%}{%- assign f = 'general' -%}{%- endif -%}
+        {%- unless folder_keys contains f -%}{%- assign folder_keys = folder_keys | append: f | append: '||' -%}{%- endunless -%}
+      {%- endfor -%}
+      {%- assign folders = folder_keys | split: '||' | sort -%}
+
+      {%- for folder in folders -%}
+        <details class="note-folder"{% if folder == cur_folder %} open{% endif %}>
+          <summary class="note-folder__label">
+            {%- comment -%} Strip a leading numeric order prefix (e.g. "02-") for display {%- endcomment -%}
+            {%- assign fparts = folder | split: '-' -%}
+            {%- assign firstchar = folder | slice: 0 -%}
+            {%- if "0123456789" contains firstchar -%}
+              {%- assign name_parts = fparts | slice: 1, 50 -%}
+            {%- else -%}
+              {%- assign name_parts = fparts -%}
+            {%- endif -%}
+            {%- assign clean = name_parts | join: ' ' | replace: '_', ' ' -%}
+            {%- assign words = clean | split: ' ' -%}
+            {%- assign label = '' -%}
+            {%- for w in words -%}
+              {%- assign cw = w | capitalize -%}
+              {%- assign label = label | append: cw | append: ' ' -%}
+            {%- endfor -%}
+            <span>{{ label | strip }}</span>
+          </summary>
+          <ul class="note-folder__items">
+            {%- for n in all_notes -%}
+              {%- assign segs = n.path | split: '/' -%}
+              {%- if segs.size > 2 -%}{%- assign nf = segs[1] -%}{%- else -%}{%- assign nf = 'general' -%}{%- endif -%}
+              {%- if nf == folder -%}
+                <li><a href="{{ n.url | relative_url }}"{% if n.url == page.url %} class="active" aria-current="page"{% endif %}>{{ n.title }}</a></li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        </details>
+      {%- endfor -%}
+    </nav>
+  </aside>
+
+  <!-- CENTER: note content -->
+  <main class="note-main">
+    <header class="note-head">
+      <h1 class="note-head__title">{{ page.title }}</h1>
+      <p class="note-head__meta">
+        <i class="ti ti-calendar" aria-hidden="true"></i> {{ page.date | date: '%B %d, %Y' }}
+        {%- if page.tags -%}
+          {% for tag in page.tags %} &middot; {{ tag }}{% endfor %}
+        {%- endif -%}
+      </p>
+      {% if page.description %}<p class="note-head__desc">{{ page.description }}</p>{% endif %}
+    </header>
+
+    <article class="post-content" id="note-content">
+      {{ content }}
+    </article>
+
+    {% if page.related_publications %}
+      <h2>References</h2>
+      <div class="publications">
+        {% bibliography --group_by none --cited_in_order %}
+      </div>
+    {% endif %}
+  </main>
+
+  <!-- RIGHT: table of contents (built from headings, with scrollspy) -->
+  <aside class="note-toc" id="note-toc-aside">
+    <p class="eyebrow">On this page</p>
+    <nav id="note-toc"></nav>
+  </aside>
+</div>
+
+<script>
+  (function () {
+    var content = document.getElementById("note-content");
+    var tocNav = document.getElementById("note-toc");
+    var aside = document.getElementById("note-toc-aside");
+    if (!content || !tocNav) return;
+
+    var headings = content.querySelectorAll("h2, h3");
+    if (!headings.length) {
+      if (aside) aside.style.display = "none";
+      return;
+    }
+
+    var ul = document.createElement("ul");
+    var linkById = {};
+
+    headings.forEach(function (h) {
+      if (!h.id) {
+        h.id = h.textContent
+          .trim()
+          .toLowerCase()
+          .replace(/[^\w]+/g, "-")
+          .replace(/^-+|-+$/g, "");
+      }
+      var li = document.createElement("li");
+      li.className = "toc-" + h.tagName.toLowerCase();
+      var a = document.createElement("a");
+      a.href = "#" + h.id;
+      a.textContent = h.textContent;
+      li.appendChild(a);
+      ul.appendChild(li);
+      linkById[h.id] = a;
+    });
+    tocNav.appendChild(ul);
+
+    var current = null;
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            if (current) current.classList.remove("is-active");
+            current = linkById[entry.target.id];
+            if (current) current.classList.add("is-active");
+          }
+        });
+      },
+      { rootMargin: "-80px 0px -70% 0px", threshold: 0 }
+    );
+    headings.forEach(function (h) {
+      observer.observe(h);
+    });
+  })();
+</script>

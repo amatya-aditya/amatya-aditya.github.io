@@ -28,17 +28,18 @@ font-weight: 500;
 }
 
 .btn-primary:hover {
-  color: #000000;
+  background-color: var(--global-hover-color) !important;
+  color: var(--global-primary-btn-font-color) !important;
 }
 
 .btn-primary:not([disabled]):not(.disabled).active {
-    background-color: var(--global-theme-color) !important;
-    color: #000 !important;;
+    background-color: var(--global-hover-color) !important;
+    color: var(--global-primary-btn-font-color) !important;
   }
 
 .btn-primary:not([disabled]):not(.disabled):active, .btn-primary:not([disabled]):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
-    background-color: var(--global-theme-color) !important;
+    background-color: var(--global-hover-color) !important;
     -webkit-box-shadow: none;
     box-shadow: none;
-    color: #000 !important;;
+    color: var(--global-primary-btn-font-color) !important;
   }

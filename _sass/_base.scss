@@ -248,10 +248,8 @@ ul.task-list input[type="checkbox"] {
 // Navbar customization
 
 .navbar {
-  box-shadow: 0 0rem 0.1rem 0 #00000026 !important;
-  // border-bottom: 1px solid var(--global-divider-color);
   opacity: 0.95;
-  max-width: $max-content-width;
+  max-width: var(--content-max);
   margin: 0 auto;
   background-color: var(--global-nav-color);
   font-weight: 500;
@@ -553,15 +551,28 @@ footer.sticky-bottom {
 
 // Blog
 
+// Blog header — unified with the standard page header (see _components.scss).
 .header-bar {
   border-bottom: 1px solid var(--global-divider-color);
-  text-align: center;
-  // padding-top: 2rem;
-  padding-bottom: 0.5rem;
+  text-align: left;
+  padding-bottom: 0.85rem;
+  margin-bottom: 1.75rem;
 
   h1 {
-    color: var(--global-theme-color);
-    font-size: 3rem;
+    color: var(--global-text-color);
+    font-size: clamp(1.7rem, 3vw, 2.15rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.35rem;
+  }
+
+  h5 {
+    color: var(--global-text-color-light);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+    max-width: var(--measure);
   }
 }
 
@@ -885,33 +896,45 @@ figure.highlight {
 }
 
 pre {
-  color: var(--global-theme-color);
+  color: var(--global-text-color);
   background-color: var(--global-code-bg-color);
-  border-radius: 6px;
-  padding: 6px 12px;
+  border: 1px solid var(--global-divider-color);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1rem;
+  overflow-x: auto;
 
   pre,
   code {
     background-color: transparent;
+    border: 0;
     border-radius: 0;
     margin-bottom: 0;
     padding: 0;
+    color: inherit;
   }
 }
 
 code {
-  color: var(--global-theme-color);
+  color: var(--global-text-color);
   background-color: var(--global-code-bg-color);
-  border-radius: 3px;
-  padding: 3px 3px;
+  border: 1px solid var(--global-divider-color);
+  border-radius: var(--radius-sm);
+  padding: 0.1em 0.4em;
 }
 
-// Transitioning Themes
+// Transitioning Themes — animate ONLY colors during a theme switch.
+// (Using `all` here caused every layout shift on page load to animate,
+// producing a "downward stretch" as web fonts loaded.)
 html.transition,
 html.transition *,
 html.transition *:before,
 html.transition *:after {
-  transition: all 750ms !important;
+  transition:
+    background-color 400ms ease,
+    color 400ms ease,
+    border-color 400ms ease,
+    fill 400ms ease,
+    box-shadow 400ms ease !important;
   transition-delay: 0 !important;
 }
 

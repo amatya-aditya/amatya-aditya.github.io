@@ -2,7 +2,14 @@
 layout: about
 title: About
 permalink: /
-subtitle: <a href='#'>Graduate Research Assistant</a>.  Auburn University.  Auburn. AL.  USA
+subtitle: <span class="role">Graduate Research Assistant</span>
+
+# Inline meta rows under your name (LinkedIn-style). Keep these accurate & non-redundant.
+facts:
+  - icon: fa-solid fa-graduation-cap
+    text: Ph.D. student, Mechanical Engineering
+  - icon: fa-solid fa-location-dot
+    text: Auburn University, Alabama, USA
 
 profile:
   align: right
@@ -14,23 +21,18 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-<div style="font-size: 1.28em; font-weight:500;">Simulating and Predicting the Unseen: Unlocking the Potential of Mechanics. </div> 
-<p></p>
-<div>
-  <div>
-    <p style="font-size: 1.15em; font-weight:500;text-decoration: underline;">Research Interests:</p>
-    <ul class="research-interests">
-      <li class="research"><i class="fa-solid fa-check-circle" style="color: #05a9a9;"></i>Finite Element Method </li>
-      <li class="research"><i class="fa-solid fa-check-circle" style=" color: #05a9a9;"></i>Computational Mechanics</li>
-      <li class="research"><i class="fa-solid fa-check-circle" style=" color: #05a9a9;"></i>Solid Mechanics</li>
-      <li class="research"><i class="fa-solid fa-check-circle" style=" color: #05a9a9;"></i>Numerical Analysis</li>
-      <li class="research"><i class="fa-solid fa-check-circle" style=" color: #05a9a9;"></i>Flexible MultiBody Dynamics</li>
-      <li class="research"><i class="fa-solid fa-check-circle" style=" color: #05a9a9;"></i>Meshless Methods</li>
-      <li class="research"><i class="fa-solid fa-check-circle" style=" color: #05a9a9;"></i>Fatigue and Fracture Mechanics</li>
-      <li class="research"><i class="fa-solid fa-check-circle" style=" color: #05a9a9;"></i>Continuum Mechanics</li>
-      <li class="research"><i class="fa-solid fa-check-circle" style=" color: #05a9a9;"></i>Vehicle Dynamics</li>
-    </ul>
-  </div>
-  <p>Apart from my academic pursuits, I find enjoyment in playing <a href="https://lichess.org/@/EngagedKnight"
-      target="_blank">chess</a>, reading books, hiking, and admiring the beauty of nature.</p>
-</div>
+<p class="eyebrow">Research Interests</p>
+<ul class="interest-tags">
+  <li>Computational Solid Mechanics</li>
+  <li>Finite Element Modeling and Simulation</li>
+  <li>Fatigue, Fracture, and Damage Mechanics</li>
+  <li>Machine Learning and Data-Driven Modeling</li>
+  <li>Mechanics of Electronic Packaging and Flexible Hybrid Electronics</li>
+  <li>Reliability of Materials, Structures, and Electronic Systems</li>
+  <li>Battery Degradation, Swelling Mechanics</li>
+  <li>Flexible Multibody Dynamics</li>
+</ul>
+
+<p class="lead-statement">"Controlling the variables across computational and experimental studies to support verification and validation of materials, structures, and electronic systems."</p>
+
+<p class="hero-note">Away from research, I play <a href="https://lichess.org/@/EngagedKnight" target="_blank" rel="noopener">chess</a>, read, and hike, usually in search of good views.</p>

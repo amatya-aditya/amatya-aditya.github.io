@@ -1,20 +1,18 @@
 <section>
-  <ul class="kanban">
+  <div class="note-grid">
     {%- for research in sorted_research -%}
-        <li class="blog-card-head kanban-item">
+      <div class="note-card blog-card-head">
+        {%- comment -%} Hidden category text — used by the filter script {%- endcomment -%}
         <div class="blog-category">
-            {% for category in research.categories %}  <a> {{ category }}</a> {% endfor %}
+          {% for category in research.categories %}<a>{{ category }}</a>{% endfor %}
         </div>
-					<div class="card-head">
-              <a href="{% if research.redirect %}{{ research.redirect }}{% else %}{{ research.url | relative_url }}{% endif %}"> 
-                 {{ research.title }}
-              </a>
-          </div>
-          </li>
-        {%- endfor %}
-  </ul>
+        <h3 class="note-card__title">
+          <a class="note-card__link" href="{% if research.redirect %}{{ research.redirect }}{% else %}{{ research.url | relative_url }}{% endif %}">{{ research.title }}</a>
+        </h3>
+        {%- if research.description -%}
+          <p class="note-card__desc">{{ research.description | strip_html | truncate: 140 }}</p>
+        {%- endif -%}
+      </div>
+    {%- endfor %}
+  </div>
 </section>
-
-
-
-

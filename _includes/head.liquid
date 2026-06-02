@@ -26,6 +26,15 @@
 <!-- Fonts & Icons -->
 <link defer rel="stylesheet" href="{{ '/assets/css/academicons.min.css' | relative_url | bust_file_cache }}">
 <link defer rel="stylesheet" href="{{ '/assets/css/scholar-icons.css' | relative_url | bust_file_cache }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Preload the Tabler icon font so navbar icons render at first paint (no reflow).
+     URL must match the @font-face src EXACTLY, including the ?v query, or it won't be used. -->
+<link rel="preload" href="{{ '/assets/fonts/tabler-icons.woff2' | relative_url }}?v3.20.0" as="font" type="font/woff2" crossorigin>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500&display=swap"
+>
 <link
   defer
   rel="stylesheet"

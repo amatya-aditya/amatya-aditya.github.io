@@ -1,0 +1,110 @@
+/*******************************************************************************
+ * Typography system
+ *
+ * - UI / headings: Inter (sans)
+ * - Long-form prose (articles, posts): Source Serif 4 (serif) for readability
+ * - Code: JetBrains Mono
+ * Type scale: minor-third-ish, fluid where it helps. Tokens in _themes.scss.
+ ******************************************************************************/
+
+html {
+  font-size: 100%; // 16px base; everything else in rem
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem; // 17px
+  line-height: 1.65;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+// -----------------------------------------------------------------------------
+// Headings — sans, tight leading, slight negative tracking
+// -----------------------------------------------------------------------------
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.014em;
+  margin-top: 1.8em;
+  margin-bottom: 0.6em;
+  color: var(--global-text-color);
+}
+
+h1 { font-size: 2rem; letter-spacing: -0.02em; }
+h2 { font-size: 1.55rem; }
+h3 { font-size: 1.27rem; }
+h4 { font-size: 1.1rem; }
+h5 { font-size: 1rem; }
+h6 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--global-text-color-light);
+}
+
+// First heading in a flow shouldn't push a huge top margin
+h1:first-child, h2:first-child, h3:first-child {
+  margin-top: 0;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1.15em;
+}
+
+small, .text-sm { font-size: 0.875rem; }
+
+// Inline code
+code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+pre, pre code {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+
+// -----------------------------------------------------------------------------
+// Long-form prose — serif body, comfortable measure & rhythm.
+// Applies to post/article/distill content containers.
+// -----------------------------------------------------------------------------
+.post .post-content,
+article.post-content,
+.post-content > *:not(.row):not(figure),
+d-article {
+  font-family: var(--font-serif);
+}
+
+.post .post-content,
+.post-content,
+d-article {
+  font-size: 1.125rem; // ~18px for reading
+  line-height: 1.7;
+
+  // Keep UI-ish elements in sans even inside prose
+  .nav, .navbar, .btn, .tag, .badge, table, figcaption,
+  .caption, .citation, .bibliography, code, pre, kbd {
+    font-family: var(--font-sans);
+  }
+  code, pre, kbd { font-family: var(--font-mono); }
+
+  h1, h2, h3, h4, h5, h6 { font-family: var(--font-sans); }
+
+  // Comfortable reading measure for flowing text blocks
+  p, ul, ol, blockquote {
+    max-width: var(--measure);
+  }
+}
+
+// Strong / emphasis
+strong, b { font-weight: 600; }
+em, i { font-style: italic; }

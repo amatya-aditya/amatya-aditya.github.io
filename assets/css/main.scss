@@ -4,14 +4,17 @@
 @charset "utf-8";
 
 
-// Define the default value for $max-content-width
-$max-content-width: 90vw;
+// Max width of the centered content "sheet".
+// Fluid on small screens, capped so text/lines never get too wide on large monitors.
+$max-content-width: min(92vw, 1180px);
 
 @import
   "variables",
   "themes",
   "layout",
   "base",
+  "typography",
+  "hero",
   "distill",
   "cv",
   "tabs",
@@ -29,7 +32,9 @@ $max-content-width: 90vw;
   "position",
   "table",
   "research_notes",
+  "note",
   "chapter_nav",
-  "custom"
+  "custom",
+  "components"
 ;
 

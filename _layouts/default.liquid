@@ -16,13 +16,16 @@
   </head>
 
   <!-- Body -->
-  <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
+  <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %} {% if page.layout == 'note' %}note-page{% endif %}">
     <!-- Header -->
     {% include header.liquid %}
 
    <!-- Content -->
 <div class="mid-container" role="main">
-  {% if page.toc and page.toc.sidebar %}
+  {% if page.layout == 'note' %}
+    <!-- Research notes own their full 3-column layout (note.liquid). -->
+    {{ content }}
+  {% elsif page.toc and page.toc.sidebar %}
     <div class="row">
       <!-- Conditional Chapter Navigation -->
       {% if page.chapter-navigation %}

@@ -15,7 +15,7 @@ div.post {
 
 .mid-container,
 .navbar {
-  max-width: $max-content-width; // Default max width
+  max-width: var(--content-max); // Default max width
   margin: 0 auto; // Center align for larger screens
 }
 
@@ -76,10 +76,10 @@ ninja-keys::part(ninja-input-wrapper) {
   font-weight: 500;
 }
 
-:root #back-to-top {
-  color: var(--global-text-color);
-  background: var(--global-theme-color) !important;
-}
+// :root #back-to-top {
+//   color: var(--global-text-color);
+//   background: var(--global-theme-color) !important;
+// }
 
 .post-header {
   text-align: center !important;

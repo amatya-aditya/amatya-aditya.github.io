@@ -7,7 +7,8 @@
   // --- Non-color design tokens (shared across themes) ---
   // Single source of truth for page width — navbar, content sheet, and footer
   // all read this, so changing it (or overriding per-page) keeps them aligned.
-  --content-max: #{$max-content-width};
+  // Plain length (no min()/vw) so every browser evaluates it identically.
+  --content-max: 1180px;
   // Spacing scale (used by the layout/typography steps)
   --space-1: 0.25rem;
   --space-2: 0.5rem;

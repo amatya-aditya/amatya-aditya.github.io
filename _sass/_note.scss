@@ -7,7 +7,7 @@
 // Overriding --content-max (not just the container) means the navbar and footer
 // widen to match automatically — width stays driven by a single variable.
 body.note-page {
-  --content-max: min(94vw, 1270px);
+  --content-max: 1270px;
 }
 body.note-page .mid-container {
   padding-left: 1.5rem;

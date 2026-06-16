@@ -6,8 +6,7 @@ description: Munal M-72 is a fixed-wing RC plane developed as the final year pro
 date:  2019-08-18
 categories:
   - Undergraduate
-  - UAV
-  - Fluid 
+  - Design
 tags:
   - UAV
 code:
@@ -27,23 +26,23 @@ The pilot test of the drone was performed in June 2018.
 
 ### Image-Slider of the Munal M-72
     
-<swiper-container keyboard="true" navigation="true" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" rewind="true">
-  <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/projects/munal/fabricated-model.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-  <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/projects/munal/fuselage.png" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-  <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/projects/munal/cl.png" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-  <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/projects/munal/cd.png" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-  <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/projects/munal/clcd.png" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-  <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/projects/munal/stallspeed.png" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-  <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/projects/munal/wingparameter.png" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-  <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/projects/munal/aoa.png" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-  <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/projects/munal/stallvelocity.png" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-  <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/projects/munal/horizontalstabilizer.png" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-  <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/projects/munal/actuator.png" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-  <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/projects/munal/wing.png" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-  <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/projects/munal/7.png" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-  <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/projects/munal/fuselage2.png" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-  <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/projects/munal/glidetest.png" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-</swiper-container>
+```media-slider
+![](assets/images/projects/munal/fabricated-model.jpg)
+![](assets/images/projects/munal/fuselage.png)
+![](assets/images/projects/munal/cl.png)
+![](assets/images/projects/munal/cd.png)
+![](assets/images/projects/munal/clcd.png)
+![](assets/images/projects/munal/stallspeed.png)
+![](assets/images/projects/munal/wingparameter.png)
+![](assets/images/projects/munal/aoa.png)
+![](assets/images/projects/munal/stallvelocity.png)
+![](assets/images/projects/munal/horizontalstabilizer.png)
+![](assets/images/projects/munal/actuator.png)
+![](assets/images/projects/munal/wing.png)
+![](assets/images/projects/munal/7.png)
+![](assets/images/projects/munal/fuselage2.png)
+![](assets/images/projects/munal/glidetest.png)
+```
 
 <br>
 ## Report of the Munal M-72

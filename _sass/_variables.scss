@@ -21,6 +21,7 @@ $accent-strong:       color.adjust($accent, $lightness: -7%) !default;          
 $accent-soft:         color.mix($accent, white, 12%) !default;                    // pale tint on light backgrounds
 $accent-light:        color.adjust($accent, $lightness: 26%, $saturation: 4%) !default; // brighter accent for dark backgrounds
 $accent-light-strong: color.adjust($accent-light, $lightness: 12%) !default;      // hover on dark
+$accent-light-deep:   color.adjust($accent-light, $lightness: -14%) !default;     // darker accent on dark (e.g. progress bar)
 $accent-deep:         color.adjust($accent, $lightness: -14%) !default;           // dark-teal text on tints
 
 // -----------------------------------------------------------------------------

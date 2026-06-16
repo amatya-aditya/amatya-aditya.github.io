@@ -5,6 +5,9 @@ description: Mohr's Circle is a valuable tool in material mechanics that visuali
 img: assets/images/python/2dmohrscircle.png
 importance: 1
 category: Mathematics, Computational Mechanics, programming
+categories:
+  - Undergraduate
+  - Solid Mechanics
 related_publications: true
 tags:
  - Solid Mechanics

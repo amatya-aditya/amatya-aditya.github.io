@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Research Notes
+title: Notes
 permalink: /research-notes/
 description: 
 nav: true

@@ -6,7 +6,7 @@ description: The FireFighter was an autonomous prototype robot that could sense 
 date:  2017-03-16
 categories:
   - Undergraduate
-  - design 
+  - Design
 tags:
  - Mechatronics
 code:

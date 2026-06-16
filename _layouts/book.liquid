@@ -1,0 +1,84 @@
+---
+layout: default
+---
+{% if page._styles %}
+  <style type="text/css">
+    {{ page._styles }}
+  </style>
+{% endif %}
+
+<div class="book-page">
+  <p class="book-page__back">
+    <a href="{{ '/reading/' | relative_url }}"><i class="ti ti-arrow-left" aria-hidden="true"></i> All reading</a>
+  </p>
+
+  <header class="book-hero">
+    <div class="book-hero__cover">
+      {%- if page.cover -%}
+        <img src="{{ page.cover | relative_url }}" alt="Cover of {{ page.title }}" />
+      {%- else -%}
+        <div class="book-card__cover--placeholder"><span>{{ page.title | slice: 0 }}</span></div>
+      {%- endif -%}
+    </div>
+
+    <div class="book-hero__meta">
+      <h1 class="book-hero__title">{{ page.title }}</h1>
+      {%- if page.author -%}<p class="book-hero__author">by {{ page.author }}</p>{%- endif -%}
+
+      {%- if page.rating and page.rating > 0 -%}
+        <div class="book-hero__rating">
+          {% include rating_stars.liquid rating=page.rating %}
+          <span class="book-hero__rating-num">{{ page.rating }} / 5</span>
+        </div>
+      {%- endif -%}
+
+      <dl class="book-facts">
+        {%- if page.status -%}
+          {%- case page.status -%}
+            {%- when 'reading' -%}{%- assign status_label = 'Currently reading' -%}
+            {%- when 'want' -%}{%- assign status_label = 'Want to read' -%}
+            {%- else -%}{%- assign status_label = 'Finished' -%}
+          {%- endcase -%}
+          <div><dt>Status</dt><dd>{{ status_label }}</dd></div>
+        {%- endif -%}
+        {%- if page.genre -%}<div><dt>Genre</dt><dd>{{ page.genre }}</dd></div>{%- endif -%}
+        {%- if page.pages -%}<div><dt>Pages</dt><dd>{{ page.pages }}</dd></div>{%- endif -%}
+        {%- if page.started -%}<div><dt>Started</dt><dd>{{ page.started | date: '%b %Y' }}</dd></div>{%- endif -%}
+        {%- if page.finished -%}<div><dt>Finished</dt><dd>{{ page.finished | date: '%b %Y' }}</dd></div>{%- endif -%}
+        {%- if page.published -%}<div><dt>Published</dt><dd>{{ page.published }}</dd></div>{%- endif -%}
+      </dl>
+
+      {%- if page.links -%}
+        <div class="book-hero__links">
+          {%- for link in page.links -%}
+            <a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.name }}</a>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </header>
+
+  {%- if page.description -%}
+    <p class="book-page__lead">{{ page.description }}</p>
+  {%- endif -%}
+
+  <article class="post-content book-page__review">
+    {{ content }}
+  </article>
+</div>
+
+<script>
+  // Inline spoilers: make them tap-/keyboard-revealable, not just hover.
+  (function () {
+    document.querySelectorAll(".spoiler-inline").forEach(function (el) {
+      el.setAttribute("tabindex", "0");
+      el.setAttribute("role", "button");
+      el.setAttribute("aria-label", "Spoiler, activate to reveal");
+      function reveal() { el.classList.add("revealed"); }
+      el.addEventListener("click", reveal);
+      el.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); reveal(); }
+      });
+    });
+  })();
+</script>

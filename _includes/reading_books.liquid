@@ -1,0 +1,48 @@
+<section>
+  <div class="book-grid" id="book-grid">
+    {%- for book in sorted_books -%}
+      {%- assign fin = '' -%}
+      {%- if book.finished -%}{%- assign fin = book.finished | date: '%s' -%}{%- endif -%}
+
+      <article class="book-card blog-card-head"
+               data-status="{{ book.status | default: 'read' }}"
+               data-finished="{{ fin }}"
+               data-rating="{{ book.rating | default: 0 }}"
+               data-title="{{ book.title | downcase }}">
+        {%- comment -%} Hidden genre text — read by the shared category filter script {%- endcomment -%}
+        <div class="blog-category"><a>{{ book.genre }}</a></div>
+
+        <a class="book-card__link" href="{{ book.url | relative_url }}" aria-label="{{ book.title }}{% if book.author %} by {{ book.author }}{% endif %}">
+          <div class="book-card__cover">
+            {%- if book.cover -%}
+              <img src="{{ book.cover | relative_url }}" alt="Cover of {{ book.title }}" loading="lazy" />
+            {%- else -%}
+              <div class="book-card__cover--placeholder"><span>{{ book.title | slice: 0 }}</span></div>
+            {%- endif -%}
+
+            {%- if book.status == 'reading' -%}
+              <span class="book-card__badge book-card__badge--reading">Reading</span>
+            {%- elsif book.status == 'want' -%}
+              <span class="book-card__badge book-card__badge--want">Want to read</span>
+            {%- endif -%}
+
+            {%- comment -%} Revealed on hover over a translucent scrim: title, author, rating {%- endcomment -%}
+            <div class="book-card__overlay">
+              <h3 class="book-card__overlay-title">{{ book.title }}</h3>
+              {%- if book.author -%}<p class="book-card__author">{{ book.author }}</p>{%- endif -%}
+              {%- if book.rating and book.rating > 0 -%}
+                <div class="book-card__rating">
+                  {% include rating_stars.liquid rating=book.rating %}
+                  <span class="book-card__rating-num">{{ book.rating }}</span>
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+
+          {%- comment -%} Hidden by default; the title appears in the hover overlay instead {%- endcomment -%}
+          <h3 class="book-card__title">{{ book.title }}</h3>
+        </a>
+      </article>
+    {%- endfor -%}
+  </div>
+</section>

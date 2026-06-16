@@ -1,0 +1,8 @@
+{%- comment -%}
+  Spoiler warning banner.
+  Usage: {% include spoiler-alert.liquid %}  or  {% include spoiler-alert.liquid text="Major spoilers for the ending" %}
+{%- endcomment -%}
+<div class="spoiler-alert" role="note">
+  <i class="ti ti-alert-triangle-filled" aria-hidden="true"></i>
+  <span>{{ include.text | default: "Spoilers ahead." }}</span>
+</div>

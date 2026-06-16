@@ -43,3 +43,29 @@ font-weight: 500;
     box-shadow: none;
     color: var(--global-primary-btn-font-color) !important;
   }
+
+/* Category filter chips (Projects): ghost by default, filled teal when active,
+   so the selected category reads clearly. */
+.filter-button-group {
+  .btn-primary {
+    background-color: transparent !important;
+    color: var(--global-theme-color) !important;
+    border: 1px solid var(--global-divider-color) !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    transition: background-color 0.16s ease, border-color 0.16s ease, color 0.16s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: transparent !important;
+    border-color: var(--global-theme-color) !important;
+    color: var(--global-theme-color) !important;
+  }
+
+  .btn-primary:not([disabled]):not(.disabled).active,
+  .btn-primary:not([disabled]):not(.disabled):active {
+    background-color: var(--global-theme-color) !important;
+    border-color: var(--global-theme-color) !important;
+    color: var(--global-hover-text-color) !important;
+  }
+}

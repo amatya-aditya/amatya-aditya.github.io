@@ -9,7 +9,8 @@ location: n
 image_sliders:
   - wheelrim
 categories:
-  - Mini simulation
+  - Undergraduate
+  - Machine Elements
 tags:
  - Structural
 images:
@@ -19,14 +20,14 @@ images:
 
 ## Design and Structural Analysis of Wheel Rim
 
-<swiper-container keyboard="true" navigation="true" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" rewind="true">
-    <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/ansys-simulation/wheel-rim/model.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-    <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/ansys-simulation/wheel-rim/Model.png" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-    <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/ansys-simulation/wheel-rim/mesh.png" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-    <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/ansys-simulation/wheel-rim/1 a.png" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-    <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/ansys-simulation/wheel-rim/1 b.png" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-    <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/ansys-simulation/wheel-rim/1 c.png" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-    <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/ansys-simulation/wheel-rim/1 d.png" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-    <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/ansys-simulation/wheel-rim/1 e.png" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-    <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/ansys-simulation/wheel-rim/1 f.png" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-</swiper-container>
+```media-slider
+![](assets/images/ansys-simulation/wheel-rim/model.jpg)
+![](assets/images/ansys-simulation/wheel-rim/Model.png)
+![](assets/images/ansys-simulation/wheel-rim/mesh.png)
+![](assets/images/ansys-simulation/wheel-rim/1 a.png)
+![](assets/images/ansys-simulation/wheel-rim/1 b.png)
+![](assets/images/ansys-simulation/wheel-rim/1 c.png)
+![](assets/images/ansys-simulation/wheel-rim/1 d.png)
+![](assets/images/ansys-simulation/wheel-rim/1 e.png)
+![](assets/images/ansys-simulation/wheel-rim/1 f.png)
+```

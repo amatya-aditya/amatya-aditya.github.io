@@ -48,6 +48,7 @@
   --global-hover-color: #{$accent-strong};
   --global-hover-text-color: #{$n-0};
   --global-highlight-color: #{$accent};
+  --global-progress-color: #{$accent-deep};
 
   --global-divider-color: #{$n-200};
   --global-code-bg-color: #{$code-bg-color-light};
@@ -130,6 +131,7 @@ html[data-theme="dark"] {
   --global-hover-color: #{$accent-light-strong};
   --global-hover-text-color: #{$d-bg};
   --global-highlight-color: #{$accent-light};
+  --global-progress-color: #{$accent-light-deep};
 
   --global-divider-color: #{$d-border};
   --global-code-bg-color: #{$code-bg-color-dark};

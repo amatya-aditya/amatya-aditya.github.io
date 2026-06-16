@@ -121,3 +121,60 @@ ninja-keys::part(ninja-input-wrapper) {
   // box-shadow: 0 0rem .2rem 0 #14a5a633  !important;
   // padding: 12px 22px;
 }
+
+/* Projects — stage sections (Graduate vs Undergraduate) */
+.projects-stage {
+  margin: 2.25rem 0 1rem;
+}
+
+.projects-stage + .projects-stage {
+  margin-top: 3.25rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--global-divider-color);
+}
+
+.stage-head {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.stage-head__title {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--global-text-color);
+}
+
+.stage-head__years {
+  margin-left: 0.5rem;
+  font-size: 0.7em;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--global-text-color-light);
+  white-space: nowrap;
+}
+
+.stage-head__note {
+  margin: 0 auto;
+  max-width: var(--measure);
+  color: var(--global-text-color-light);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.stage-empty {
+  margin: 1.5rem auto;
+  max-width: 36rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  border: 1px dashed var(--global-divider-color);
+  border-radius: var(--radius);
+  background: var(--global-card-bg-color);
+  color: var(--global-text-color-light);
+}
+
+.stage-empty p {
+  margin: 0;
+}

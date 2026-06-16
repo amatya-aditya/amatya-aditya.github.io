@@ -159,7 +159,10 @@ collections:
     permalink: /projects/:path/
   research-notes:
       output: true
-      permalink: /research-notes/:path/ 
+      permalink: /research-notes/:path/
+  reading:
+      output: true
+      permalink: /reading/:path/
 
 announcements:
   enabled: true

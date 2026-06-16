@@ -1,0 +1,10 @@
+{%- comment -%}
+  Renders a 0–5 star rating that supports fractional values (e.g. 4.5).
+  Usage: {% include rating_stars.liquid rating=page.rating %}
+{%- endcomment -%}
+{%- assign _r = include.rating | times: 1.0 -%}
+{%- assign _pct = _r | times: 20.0 -%}
+<span class="stars" role="img" aria-label="{{ include.rating }} out of 5 stars" title="{{ include.rating }} / 5">
+  <span class="stars__empty">★★★★★</span>
+  <span class="stars__full" style="width: {{ _pct }}%;">★★★★★</span>
+</span>

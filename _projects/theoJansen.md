@@ -6,7 +6,7 @@ description: The work was intended to mimic the walking motion of the animal. Th
 date:  2018-08-11
 categories:
   - Undergraduate
-  - mechanism 
+  - Mechanisms
 tags:
  - Kinematics
 images:

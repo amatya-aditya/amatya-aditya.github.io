@@ -7,9 +7,8 @@ description: The fluid flow over cylinder was observed at different Reynolds num
 date:  2021-08-18
 importance: 1
 categories:
-  - Mini
-  - cfd 
-  - simulation
+  - Undergraduate
+  - Thermofluid Systems
 tags:
  - CFD Simulation
 

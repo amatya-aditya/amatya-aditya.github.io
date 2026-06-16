@@ -6,7 +6,7 @@ description: This project was submitted as a partial fulfillment for Turbomachin
 date:  2018-03-10
 categories:
   - Undergraduate
-  - design
+  - Machine Elements
 category: Computational Mechanics
 tags:
  - CFD
@@ -21,19 +21,19 @@ pdf: impeller.pdf
 This project was submitted as a partial fulfillment for Turbomachinery class. The project was intended to provide the basic knowledge of the radial vane impeller.
 
 ### Image-Slider of the Radial Vane Impeller
-<swiper-container keyboard="true" navigation="true" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" rewind="true">
-    <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/projects/impeller/designparameter.png" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-    <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/projects/impeller/orthographic.PNG" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-    <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/projects/impeller/orthographic.PNG" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-    <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/projects/impeller/outlet.PNG" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-    <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/projects/impeller/isometric2.PNG" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-    <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/projects/impeller/calc.PNG" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-    <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/projects/impeller/totalpressure.PNG" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-    <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/projects/impeller/streamline.PNG" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-    <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/projects/impeller/velocitycontour.PNG" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-    <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/projects/impeller/pvsq.PNG" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-    <swiper-slide>{% include figure.liquid loading="eager" path="assets/images/projects/impeller/povsq.PNG" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-</swiper-container>
+```media-slider
+![](assets/images/projects/impeller/designparameter.png)
+![](assets/images/projects/impeller/orthographic.PNG)
+![](assets/images/projects/impeller/orthographic.PNG)
+![](assets/images/projects/impeller/outlet.PNG)
+![](assets/images/projects/impeller/isometric2.PNG)
+![](assets/images/projects/impeller/calc.PNG)
+![](assets/images/projects/impeller/totalpressure.PNG)
+![](assets/images/projects/impeller/streamline.PNG)
+![](assets/images/projects/impeller/velocitycontour.PNG)
+![](assets/images/projects/impeller/pvsq.PNG)
+![](assets/images/projects/impeller/povsq.PNG)
+```
 
 <br>
 

@@ -1,0 +1,15 @@
+{%- comment -%}
+  Click-to-reveal spoiler block.
+  Usage:
+    {% capture body %}
+    Your hidden, **markdown-capable** text here.
+    {% endcapture %}
+    {% include spoiler.liquid summary="Reveal the ending" content=body %}
+{%- endcomment -%}
+<details class="spoiler">
+  <summary>
+    <i class="ti ti-eye-off" aria-hidden="true"></i>
+    <span>{{ include.summary | default: "Spoiler — click to reveal" }}</span>
+  </summary>
+  <div class="spoiler__body">{{ include.content | markdownify }}</div>
+</details>

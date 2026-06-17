@@ -3,10 +3,15 @@
 <header class="hero">
   <div
     class="hero-banner"
-    style="background-image: url('{{ '/assets/img/banner.svg' | relative_url }}');"
     role="img"
-    aria-label="Finite element mesh banner"
-  ></div>
+    aria-label="Animated finite-element mesh coloured like a stress-contour plot, with governing equations of mechanics floating above it"
+  >
+    <canvas class="hero-fem" aria-hidden="true"></canvas>
+    <div class="hero-eqns" aria-hidden="true"></div>
+    <noscript>
+      <span class="hero-fallback" style="background-image: url('{{ '/assets/img/banner.svg' | relative_url }}');"></span>
+    </noscript>
+  </div>
 
   <div class="hero-body">
     <div class="hero-left">

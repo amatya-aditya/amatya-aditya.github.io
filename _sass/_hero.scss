@@ -8,12 +8,67 @@
 }
 
 .hero-banner {
+  position: relative;
   height: clamp(150px, 22vw, 250px);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   border-radius: var(--radius-xs);
   box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  // Teal field background so the canvas mesh blends into it and the band still
+  // looks right before/while JS loads (matches banner.svg).
+  background:
+    radial-gradient(120% 140% at 78% 18%, rgba(45, 212, 191, 0.22), transparent 60%),
+    linear-gradient(135deg, #0b3b37 0%, #0f766e 52%, #0b1f1d 100%);
+
+  // background: 
+  // radial-gradient(120% 140% at 78% 18%, rgba(14, 155, 136, 0.747), transparent 60%), 
+  // linear-gradient(135deg, rgba(10, 128, 122, 0.46) 0%, rgb(1 94 87 / 5%) 52%, rgb(54, 19, 19) 100%);
+
+
+  touch-action: pan-y; // let the page scroll over the canvas on touch
+}
+
+// The FEM mesh / contour canvas — fills the band, sits under the equations.
+.hero-fem {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+// Floating governing equations — a non-interactive overlay positioned by JS.
+.hero-eqns {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-eqn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: #ffffff;
+  white-space: nowrap;
+  will-change: transform;
+  -webkit-user-select: none;
+  user-select: none;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+
+  sub,
+  sup {
+    font-size: 0.7em;
+  }
+}
+
+// No-JS fallback: show the original static banner.
+.hero-fallback {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
 }
 
 // Two columns: left = avatar + name + role; right = links + meta rows.

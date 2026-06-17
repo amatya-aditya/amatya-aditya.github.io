@@ -3,6 +3,7 @@ layout: about
 title: About
 permalink: /
 subtitle: <span class="role">Graduate Research Assistant</span>
+hero_particles: true # animated FEM-mesh / contour-field hero banner
 
 # Inline meta rows under your name (LinkedIn-style). Keep these accurate & non-redundant.
 facts:

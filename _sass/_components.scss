@@ -8,9 +8,14 @@
 // -----------------------------------------------------------------------------
 .navbar {
   opacity: 1 !important;
-  box-shadow: var(--shadow-sm) !important;
-  border-bottom: 1px solid var(--global-divider-color);
+  // Same surface colour as the content sheet (and the navbar's own inner
+  // .container) so the whole top reads as one seamless surface — no two-tone
+  // bar and no mismatched band. The dark strip users saw was a desk-coloured
+  // band from a collapsing top margin, fixed via .mid-container padding-top.
   background-color: var(--global-container-color);
+  border-bottom: 1px solid var(--global-divider-color);
+  // box-shadow: var(--shadow-sm) !important;
+  box-shadow: none !important;
 }
 
 .navbar.navbar-light .navbar-nav .nav-item .nav-link {

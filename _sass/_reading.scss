@@ -93,6 +93,15 @@
   }
 }
 
+// On small screens the toolbar wraps and the sort button moves left, so anchor
+// the menu to the left edge instead of opening off-screen to the right:0 side.
+@media (max-width: 620px) {
+  .sort-menu__list {
+    right: auto;
+    left: 0;
+  }
+}
+
 .sort-option {
   text-align: left;
   padding: 0.45rem 0.7rem;
@@ -124,9 +133,20 @@
   padding: 0;
 }
 
+// Keep a tidy two-up shelf on phones instead of dropping to one huge cover.
+// minmax(0, 1fr) (not plain 1fr) lets the tracks shrink below the cover image's
+// intrinsic size, so the grid can't overflow the viewport and clip the covers.
+@media (max-width: 576px) {
+  .book-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.1rem 0.9rem;
+  }
+}
+
 .book-card {
   display: flex;
   flex-direction: column;
+  min-width: 0; // allow the grid track to shrink (no image-driven overflow)
 
   // hidden text used only by the shared category filter script
   .blog-category { display: none; }
@@ -162,6 +182,7 @@
   img {
     width: 100%;
     height: 100%;
+    max-width: 100%; // override the global `img { max-width: 32vw }` cap
     object-fit: cover;
     display: block;
   }

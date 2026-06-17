@@ -7,14 +7,20 @@ hero_particles: true # animated FEM-mesh / contour-field hero banner
 
 # Inline meta rows under your name (LinkedIn-style). Keep these accurate & non-redundant.
 facts:
-  - icon: fa-solid fa-graduation-cap
-    text: Ph.D. student, Mechanical Engineering
-  - icon: fa-solid fa-location-dot
-    text: Auburn University, Alabama, USA
+  
+
+# Education shown in the hero's right column (LinkedIn-style). Drop a logo image
+# under assets/img/ and set `logo:` to its path (e.g. logos/auburn.png); leave
+# logo blank to fall back to a placeholder icon.
+education:
+  - name: Auburn University, Samuel Ginn College of Engineering
+    logo: logos/au_logo_fullcolor_blue.png
+  - name: Tribhuvan University, IOE, Pulchowk Campus
+    logo: logos/tu_logo.png
 
 profile:
   align: right
-  image: profile_pic.jpg
+  image: prof_pic_cl_rm_bg.png
   image_circular: true # crops the image to make it circular
   more_info: 
 news: true # includes a list of news items

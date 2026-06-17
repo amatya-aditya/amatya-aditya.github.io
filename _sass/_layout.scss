@@ -30,8 +30,9 @@ body.sticky-bottom-footer {
 }
 
 // Responsive horizontal gutter for the content sheet:
-// 1.25rem on phones → up to 3.5rem on desktop.
-$sheet-gutter: clamp(1.25rem, 5vw, 3.5rem);
+// 1.5rem on phones → up to 3.5rem on desktop (a touch more breathing room
+// on small screens).
+$sheet-gutter: clamp(1.5rem, 5.5vw, 3.5rem);
 
 .mid-container {
   max-width: var(--content-max);

@@ -1,6 +1,9 @@
 .mid-container {
     color: var(--global-footer-text-color);
-    padding-top: 0;
+    // Do NOT zero padding-top — _layout.scss sets it intentionally. Without top
+    // padding the first child's top margin collapses out of the sheet and shows
+    // a desk-coloured band between the navbar and the content (all pages whose
+    // first element has a top margin, i.e. everything but the about hero).
     padding-bottom: 8px;
   }
 
@@ -83,7 +86,7 @@ ninja-keys::part(ninja-input-wrapper) {
 
 .post-header {
   text-align: center !important;
-  margin-top: 20px;
+  margin-top: -10px;
 }
 
 .btn-primary:hover {

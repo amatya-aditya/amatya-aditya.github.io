@@ -3,6 +3,13 @@
  * properties that every component reads. Light + dark are kept in parity.
  ******************************************************************************/
 
+@use "sass:color";
+
+// Hero banner opacity. The gradient-stop tokens below are SOLID colours (their
+// 48% / 15% are colour-mix weights = darkness, not alpha). Lower this to let the
+// page show through the banner so it blends more; 1 = fully opaque accent field.
+$hero-grad-alpha: 1 !default;
+
 :root {
   // --- Non-color design tokens (shared across themes) ---
   // Single source of truth for page width — navbar, content sheet, and footer
@@ -49,6 +56,24 @@
   --global-hover-text-color: #{$n-0};
   --global-highlight-color: #{$accent};
   --global-progress-color: #{$accent-deep};
+
+  // Hero banner field colours — derived from $accent so the banner re-skins
+  // automatically. Read by _hero.scss and the hero canvas JS. Kept on :root
+  // only — the band stays a dark accent field in both themes.
+  // The 48% / 15% are colour-mix weights (% of $accent vs black = darkness);
+  // opacity is the separate $hero-grad-alpha applied below.
+  --hero-grad-deep: #{rgba(color.mix($accent, #6666662f, 15%), $hero-grad-alpha)};
+  --hero-grad-mid: #{rgba($accent, $hero-grad-alpha)};
+  --hero-grad-dark: #{rgba(color.mix($accent, #24242413, 15%), $hero-grad-alpha)};
+  --hero-glow: #{rgba($accent-light, 0.22)};
+  // Particle / mesh colour — drives the hero canvas colormap (a dark→colour→light
+  // ramp is derived from this in hero-particles.js). Defaults to the accent;
+  // change it here (any hex/rgb, e.g. #3b82f6) to recolour just the particles.
+  --hero-particle-color: #{$accent-light};
+  
+  // Floating-equation ink. The band is dark in both themes, so both are light;
+  // the dark-theme value is a touch cooler/softer (overridden below).
+  --hero-eqn-color: #{rgba(#161616, 0.92)};
 
   --global-divider-color: #{$n-200};
   --global-code-bg-color: #{$code-bg-color-light};
@@ -126,6 +151,9 @@ html[data-theme="dark"] {
   --global-text-color: #{$dark-text-color};
   --global-text-color-light: #{$d-text-muted};
   --global-text-dark-color: #{$dark-text-dark-color};
+
+  // Softer, cooler equation ink for the dark theme.
+  --hero-eqn-color: #{rgba(#dbe4f0, 0.82)};
 
   --global-theme-color: #{$accent-light};
   --global-hover-color: #{$accent-light-strong};

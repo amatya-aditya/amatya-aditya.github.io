@@ -56,19 +56,20 @@
     </div>
   {% else %}
     <!-- No ToC -->
-    <div class="row">
-      {% if page.chapter-navigation %}
+    {% if page.chapter-navigation %}
+      <div class="row">
         <!-- Chapter Navigation Sidebar -->
         <div class="col-sm-3">
           {% include chapter-navigation.liquid %}
         </div>
         <!-- Main Content Area -->
         <div class="post-article col-sm-9">{{ content }}</div>
-      {% else %}
-        <!-- Main Content Area Only -->
-        {{ content }}
-      {% endif %}
-    </div>
+      </div>
+    {% else %}
+      <!-- Main Content Area Only — no Bootstrap row so content respects the
+           .mid-container side gutter instead of overflowing it. -->
+      {{ content }}
+    {% endif %}
   {% endif %}
 </div>
 

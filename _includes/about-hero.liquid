@@ -1,5 +1,4 @@
-{% comment %} Profile hero: banner + overlapping avatar + identity + quick links {% endcomment %}
-{% assign s = site.data.socials %}
+{% comment %} Profile hero: LinkedIn-style card — banner + overlapping avatar + two-column details {% endcomment %}
 <header class="hero">
   <div
     class="hero-banner"
@@ -13,59 +12,44 @@
     </noscript>
   </div>
 
-  <div class="hero-body">
-    <div class="hero-left">
-      {% if page.profile.image %}
-        <div class="hero-avatar">
-          <img
-            src="{{ page.profile.image | prepend: '/assets/img/' | relative_url }}"
-            alt="{{ site.title }}"
-            loading="eager"
-          >
-        </div>
-      {% endif %}
-      <h1 class="hero-name">{{ site.title }}</h1>
-      {% if page.subtitle %}
-        <p class="hero-headline">{{ page.subtitle }}</p>
-      {% endif %}
-    </div>
+  {% comment %} Each piece below is an independent element — style/position them separately. {% endcomment %}
+  <div class="hero-identity">
+    {% if page.profile.image %}
+      <div class="hero-avatar">
+        <img
+          src="{{ page.profile.image | prepend: '/assets/img/' | relative_url }}"
+          alt="{{ site.title }}"
+          loading="eager"
+        >
+      </div>
+    {% endif %}
 
-    <div class="hero-right">
-      <nav class="hero-links" aria-label="Profile links">
-        {% if s.email %}
-          <a class="hero-link" href="mailto:{{ s.email }}" aria-label="Email">
-            <i class="fa-solid fa-envelope"></i><span>Email</span>
-          </a>
+    <div class="hero-cols">
+      <div class="hero-id-main">
+        <h1 class="hero-name">{{ site.title }}</h1>
+        {% if page.subtitle %}
+          <p class="hero-headline">{{ page.subtitle }}</p>
         {% endif %}
-        {% if s.scholar_userid %}
-          <a class="hero-link" href="https://scholar.google.com/citations?user={{ s.scholar_userid }}" target="_blank" rel="noopener" aria-label="Google Scholar">
-            <i class="ai ai-google-scholar"></i><span>Scholar</span>
-          </a>
+        {% if page.facts %}
+          <ul class="hero-meta">
+            {% for fact in page.facts %}
+              <li><i class="{{ fact.icon }}" aria-hidden="true"></i><span>{{ fact.text }}</span></li>
+            {% endfor %}
+          </ul>
         {% endif %}
-        {% if s.github_username %}
-          <a class="hero-link" href="https://github.com/{{ s.github_username }}" target="_blank" rel="noopener" aria-label="GitHub">
-            <i class="fa-brands fa-github"></i><span>GitHub</span>
-          </a>
-        {% endif %}
-        {% if s.linkedin_username %}
-          <a class="hero-link" href="https://www.linkedin.com/in/{{ s.linkedin_username }}" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <i class="fa-brands fa-linkedin-in"></i><span>LinkedIn</span>
-          </a>
-        {% endif %}
-        <a class="hero-link" href="{{ '/cv/' | relative_url }}" aria-label="Curriculum Vitae">
-          <i class="fa-solid fa-file-lines"></i><span>CV</span>
-        </a>
-        {% if s.rss_icon %}
-          <a class="hero-link" href="{{ '/feed.xml' | relative_url }}" target="_blank" rel="noopener" aria-label="RSS feed">
-            <i class="fa-solid fa-rss"></i><span>RSS</span>
-          </a>
-        {% endif %}
-      </nav>
+      </div>
 
-      {% if page.facts %}
-        <ul class="hero-meta">
-          {% for fact in page.facts %}
-            <li><i class="{{ fact.icon }}" aria-hidden="true"></i><span>{{ fact.text }}</span></li>
+      {% if page.education %}
+        <ul class="hero-education" aria-label="Education">
+          {% for edu in page.education %}
+            <li class="hero-edu">
+              {% if edu.logo %}
+                <img class="hero-edu__logo" src="{{ edu.logo | prepend: '/assets/img/' | relative_url }}" alt="" loading="lazy">
+              {% else %}
+                <span class="hero-edu__logo hero-edu__logo--ph"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></span>
+              {% endif %}
+              <span class="hero-edu__name">{{ edu.name }}</span>
+            </li>
           {% endfor %}
         </ul>
       {% endif %}

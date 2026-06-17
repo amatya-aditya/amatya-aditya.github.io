@@ -14,7 +14,8 @@
 //    Every other shade is derived from it with color math, so changing this
 //    single value re-skins the whole site.
 // -----------------------------------------------------------------------------
-$accent: #0f766e !default; // ← change THIS to re-skin everything
+// $accent: #187c7c !default;
+$accent: #b15408c0 !default; // ← change THIS to re-skin everything
 
 // Derived shades (do not hardcode — they follow $accent automatically)
 $accent-strong:       color.adjust($accent, $lightness: -7%) !default;            // hover / pressed (darker)

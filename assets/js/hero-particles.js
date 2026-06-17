@@ -43,8 +43,10 @@
   };
   const NEEDS_NODES = SHOW.particles || SHOW.glow || SHOW.links || SHOW.elements;
 
-  // --- Contour colormap (deep teal → teal → cyan → green → lime → amber) -----
-  const STOPS = [
+  // --- Contour colormap ------------------------------------------------------
+  // Built at runtime from the site accent (CSS var --hero-grad-mid) so the
+  // particle/contour colours track $accent. Falls back to teal if unreadable.
+  let STOPS = [
     [0.0, [19, 78, 74]],
     [0.22, [15, 118, 110]],
     [0.45, [20, 184, 166]],
@@ -52,6 +54,46 @@
     [0.82, [163, 230, 53]],
     [1.0, [251, 191, 36]],
   ];
+
+  function parseColor(str) {
+    if (!str) return null;
+    str = str.trim();
+    if (str[0] === '#') {
+      let h = str.slice(1);
+      if (h.length === 3) h = h[0] + h[0] + h[1] + h[1] + h[2] + h[2];
+      const n = parseInt(h, 16);
+      if (isNaN(n)) return null;
+      return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+    }
+    const m = str.match(/[\d.]+/g);
+    return m && m.length >= 3 ? [+m[0], +m[1], +m[2]] : null;
+  }
+  function mixRGB(a, b, t) {
+    return [
+      Math.round(a[0] + (b[0] - a[0]) * t),
+      Math.round(a[1] + (b[1] - a[1]) * t),
+      Math.round(a[2] + (b[2] - a[2]) * t),
+    ];
+  }
+  // Tonal ramp from the accent: dark accent → accent → light accent.
+  function buildAccentStops() {
+    const cs = getComputedStyle(banner);
+    const acc =
+      parseColor(cs.getPropertyValue('--hero-particle-color')) ||
+      parseColor(cs.getPropertyValue('--hero-grad-mid')) ||
+      parseColor(cs.getPropertyValue('--global-theme-color'));
+    if (!acc) return; // keep the teal fallback
+    const black = [10, 13, 16];
+    const white = [255, 249, 240];
+    STOPS = [
+      [0.0, mixRGB(acc, black, 0.6)],
+      [0.3, mixRGB(acc, black, 0.22)],
+      [0.55, acc],
+      [0.78, mixRGB(acc, white, 0.32)],
+      [1.0, mixRGB(acc, white, 0.62)],
+    ];
+  }
+
   function colormap(t) {
     t = t < 0 ? 0 : t > 1 ? 1 : t;
     for (let i = 1; i < STOPS.length; i++) {
@@ -168,7 +210,7 @@
   // Layer 1 — free node network.
   function buildNodes() {
     const target = Math.round((W * H) / 5600);
-    const count = Math.max(150, Math.min(450, target));
+    const count = Math.max(80, Math.min(150, target));
     nodes = [];
     for (let i = 0; i < count; i++) {
       nodes.push({
@@ -578,6 +620,7 @@
   });
 
   // Init.
+  buildAccentStops();
   resize();
   if (reduceMotion) {
     step(0, 0);

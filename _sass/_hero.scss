@@ -3,27 +3,26 @@
  * Used on the about/landing page. Reads design tokens from _themes.scss.
  ******************************************************************************/
 
+// LinkedIn-style profile card: banner + overlapping avatar + details, grouped
+// into one bordered, rounded card so they read as a single unit.
 .hero {
-  margin-bottom: 2.25rem;
+  // margin-bottom: 2.25rem;
+  // background: var(--global-card-bg-color);
+  // border: 1px solid var(--global-divider-color);
+  // border-radius: var(--radius-lg);
+  // overflow: hidden; // clips the banner's top corners to the card radius
+  // box-shadow: var(--shadow-sm);
 }
 
 .hero-banner {
   position: relative;
   height: clamp(150px, 22vw, 250px);
-  border-radius: var(--radius-xs);
-  box-shadow: var(--shadow-sm);
   overflow: hidden;
-  // Teal field background so the canvas mesh blends into it and the band still
-  // looks right before/while JS loads (matches banner.svg).
-  background:
-    radial-gradient(120% 140% at 78% 18%, rgba(45, 212, 191, 0.22), transparent 60%),
-    linear-gradient(135deg, #0b3b37 0%, #0f766e 52%, #0b1f1d 100%);
-
-  // background: 
-  // radial-gradient(120% 140% at 78% 18%, rgba(14, 155, 136, 0.747), transparent 60%), 
-  // linear-gradient(135deg, rgba(10, 128, 122, 0.46) 0%, rgb(1 94 87 / 5%) 52%, rgb(54, 19, 19) 100%);
-
-
+  // Accent-derived field background — follows $accent automatically (tokens in
+  // _themes.scss; opacity via $hero-grad-alpha). Sits under the canvas mesh.
+  // background:
+  //   radial-gradient(120% 140% at 78% 18%, var(--hero-glow), transparent 60%),
+  //   linear-gradient(135deg, var(--hero-grad-deep) 0%, var(--hero-grad-mid) 52%, var(--hero-grad-dark) 100%);
   touch-action: pan-y; // let the page scroll over the canvas on touch
 }
 
@@ -48,14 +47,17 @@
   position: absolute;
   top: 0;
   left: 0;
-  font-family: var(--font-serif);
+  // Proper math typeface (LaTeX-like). Falls back through common OpenType math
+  // fonts to the CSS `math` generic and finally serif.
+  font-family: "Latin Modern Math", "STIX Two Math", "Cambria Math",
+    "TeX Gyre Termes Math", "DejaVu Math TeX Gyre", math, var(--font-serif), serif;
   font-style: italic;
-  color: #ffffff;
+  color: var(--hero-eqn-color);
   white-space: nowrap;
   will-change: transform;
   -webkit-user-select: none;
   user-select: none;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
 
   sub,
   sup {
@@ -71,69 +73,68 @@
   background-position: center;
 }
 
-// Two columns: left = avatar + name + role; right = links + meta rows.
-.hero-body {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 1rem 2rem;
-  padding: 0 0.5rem;
+/* -----------------------------------------------------------------------------
+ * Identity — inside the card, under the banner. The avatar overlaps the banner;
+ * below it a two-column row: left = name/role/meta, right = education. Each piece
+ * is an independent element so it can be styled/positioned on its own.
+ * -------------------------------------------------------------------------- */
+.hero-identity {
+  padding: 0 clamp(1rem, 3vw, 1.5rem) clamp(1rem, 3vw, 1.5rem);
 }
 
-.hero-left {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-}
-
-.hero-right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.9rem;
-  margin-top: 0.6rem;
-}
-
+// Profile photo — pulled up to overlap the banner; ring matches the card.
 .hero-avatar {
-  width: clamp(116px, 15vw, 150px);
+  width: clamp(112px, 14vw, 148px);
   aspect-ratio: 1 / 1;
-  margin-top: clamp(-92px, -10vw, -68px);
-  border-radius: 50%;
-  border: 4px solid var(--global-container-color);
-  background: var(--global-container-color);
-  box-shadow: var(--shadow);
+  margin: clamp(-90px, -9vw, -60px) 0 0;
+  border-radius: 40%;
+  // border: 4px solid var(--global-card-bg-color);
+  border: none;
+  // background: var(--global-card-bg-color);
+  // box-shadow: var(--shadow);
   overflow: hidden;
   position: relative;
-  // Center the name under the avatar
-  align-self: center;
+  opacity: 0.85;
 
   img {
     width: 100%;
     height: 100%;
+    max-width: 100%; // override the global `img { max-width: 32vw }` cap
     object-fit: cover;
     display: block;
   }
 }
 
+// Two columns beneath the avatar.
+.hero-cols {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.25rem 2.5rem;
+  margin-top: 0.85rem;
+}
+
+.hero-id-main {
+  flex: 1 1 16rem;
+  min-width: 0;
+}
+
 .hero-name {
-  margin: 0.75rem 0 0.1rem;
-  font-size: 1.3rem;
+  margin: 0 0 0.15rem;
+  font-size: clamp(1.4rem, 2.4vw, 1.7rem);
   font-weight: 700;
-  letter-spacing: -0.015em;
-  line-height: 1.1;
-  text-align: center;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
 }
 
 .hero-headline {
   color: var(--global-text-color-light);
   font-family: var(--font-sans);
-  font-size: 0.95rem;
-  margin-bottom: 0;
-  text-align: center;
+  font-size: 1rem;
+  margin: 0 0 0.85rem;
 
   .role {
-    // color: var(--global-theme-color);
     font-weight: 600;
   }
   a {
@@ -144,22 +145,21 @@
   }
 }
 
-// Inline meta rows (location, education) — right column, under the links
+// Degree / location rows.
 .hero-meta {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
-  padding-right: 1.2rem;
+  gap: 0.45rem;
 
   li {
     display: flex;
     align-items: center;
     gap: 0.6rem;
     font-family: var(--font-sans);
-    font-size: 0.92rem;
+    font-size: 0.95rem;
     color: var(--global-text-color-light);
   }
 
@@ -171,55 +171,71 @@
   }
 }
 
-.hero-links {
+// Education — right column, each entry a logo + school name (LinkedIn-style).
+.hero-education {
+  list-style: none;
+  margin: -2.5rem 0 0 0;
+  padding: 0;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 0.5rem;
+  flex-direction: column;
+  gap: 0.8rem;
+  flex: 0 1 22rem;
+
 }
 
-// On narrow screens, stack the right column under the left, left-aligned.
-@media (max-width: 620px) {
-  .hero-right {
-    align-items: flex-start;
-    width: 100%;
-    margin-top: 0.4rem;
-  }
-  .hero-links {
-    justify-content: flex-start;
-  }
+.hero-edu {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
 }
 
-.hero-link {
+.hero-edu__logo {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 auto;
+  object-fit: contain;
+  border-radius: 6px;
+  background: var(--global-container-color);
+}
+
+.hero-edu__logo--ph {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  padding: 0.42rem 0.9rem;
+  justify-content: center;
   border: 1px solid var(--global-divider-color);
-  border-radius: 50px;
-  font-family: var(--font-sans);
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--global-text-color) !important;
-  text-decoration: none !important;
-  transition: border-color 0.16s ease, background-color 0.16s ease, transform 0.16s ease;
-
-  i {
-    font-size: 1em;
-    color: var(--global-theme-color);
-  }
-
-  &:hover {
-    border-color: var(--global-theme-color);
-    background: var(--global-tag-color);
-    transform: translateY(-1px);
-  }
+  color: var(--global-theme-color);
+  font-size: 1.05rem;
 }
 
-// On very small screens, let labels hide if cramped (icons remain)
-@media (max-width: 360px) {
-  .hero-link span {
-    display: none;
+.hero-edu__name {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--global-text-color);
+}
+
+// Legacy quick-link pills are no longer rendered (socials live in the navbar).
+.hero-links {
+  display: none;
+}
+
+// Stack the two columns earlier so they never get cramped side-by-side (768px
+// is the navbar's hamburger breakpoint too). When stacked, reset the flex basis
+// to `auto` — otherwise the row-axis basis (16rem / 22rem) becomes a forced
+// HEIGHT in column direction and leaves a big empty gap below the education —
+// and drop the desktop alignment offset on the education list.
+@media (max-width: 780px) {
+  .hero-cols {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .hero-id-main,
+  .hero-education {
+    flex: 0 0 auto;
+  }
+  .hero-education {
+    margin-top: 0;
   }
 }
 

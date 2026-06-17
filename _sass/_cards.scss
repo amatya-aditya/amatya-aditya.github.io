@@ -45,8 +45,10 @@
 }
 
 .card-header img {
+  display: block;
   width: 100%;
   height: 180px;
+  max-width: 100%; // override the global `img { max-width: 32vw }` cap
   object-fit: cover;
 }
 

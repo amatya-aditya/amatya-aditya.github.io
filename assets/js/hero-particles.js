@@ -55,6 +55,26 @@
     [1.0, [251, 191, 36]],
   ];
 
+  function hslToRgb(h, s, l) {
+    h = ((h % 360) + 360) % 360;
+    s = Math.max(0, Math.min(100, s)) / 100; // clamp like the browser does
+    l = Math.max(0, Math.min(100, l)) / 100;
+    const c = (1 - Math.abs(2 * l - 1)) * s;
+    const x = c * (1 - Math.abs(((h / 60) % 2) - 1));
+    const m = l - c / 2;
+    let r = 0, g = 0, b = 0;
+    if (h < 60)       { r = c; g = x; }
+    else if (h < 120) { r = x; g = c; }
+    else if (h < 180) { g = c; b = x; }
+    else if (h < 240) { g = x; b = c; }
+    else if (h < 300) { r = x; b = c; }
+    else              { r = c; b = x; }
+    return [
+      Math.round((r + m) * 255),
+      Math.round((g + m) * 255),
+      Math.round((b + m) * 255),
+    ];
+  }
   function parseColor(str) {
     if (!str) return null;
     str = str.trim();
@@ -66,7 +86,12 @@
       return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
     }
     const m = str.match(/[\d.]+/g);
-    return m && m.length >= 3 ? [+m[0], +m[1], +m[2]] : null;
+    if (!m || m.length < 3) return null;
+    // hsl()/hsla(): Sass can emit this when a derived shade lands out of sRGB
+    // gamut (e.g. a near-saturated accent bumped past 100% saturation). Convert
+    // it — otherwise the H/S/L numbers get misread as R/G/B (blue → orange).
+    if (/^hsla?\(/i.test(str)) return hslToRgb(+m[0], +m[1], +m[2]);
+    return [+m[0], +m[1], +m[2]];
   }
   function mixRGB(a, b, t) {
     return [

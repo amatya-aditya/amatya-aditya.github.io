@@ -9,6 +9,7 @@
 // 48% / 15% are colour-mix weights = darkness, not alpha). Lower this to let the
 // page show through the banner so it blends more; 1 = fully opaque accent field.
 $hero-grad-alpha: 1 !default;
+$hero-low-alpha: 0.02 !default; // for the banner's darkest gradient stop, used in the dark theme
 
 :root {
   // --- Non-color design tokens (shared across themes) ---
@@ -66,6 +67,7 @@ $hero-grad-alpha: 1 !default;
   --hero-grad-mid: #{rgba($accent, $hero-grad-alpha)};
   --hero-grad-dark: #{rgba(color.mix($accent, #24242413, 15%), $hero-grad-alpha)};
   --hero-glow: #{rgba($accent-light, 0.22)};
+  --hero-low-alpha-accent: #{rgba($accent-light, $hero-low-alpha)};
   // Particle / mesh colour — drives the hero canvas colormap (a dark→colour→light
   // ramp is derived from this in hero-particles.js). Defaults to the accent;
   // change it here (any hex/rgb, e.g. #3b82f6) to recolour just the particles.

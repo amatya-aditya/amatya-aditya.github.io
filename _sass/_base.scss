@@ -790,8 +790,10 @@ footer.sticky-bottom {
         }
 
         > em {
-          border-bottom: 1px solid;
           font-style: normal;
+          font-weight: 700;
+          color: var(--global-theme-color);
+          border-bottom: 1px solid var(--global-theme-color);
         }
 
         > span.more-authors {
@@ -886,6 +888,21 @@ footer.sticky-bottom {
     }
     div.award.hidden.open {
       border-color: var(--global-highlight-color);
+    }
+  }
+}
+
+.more-publications {
+  margin: 0.25rem 0 1.5rem;
+  text-align: right;
+
+  a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--global-theme-color);
+
+    &:hover {
+      text-decoration: underline;
     }
   }
 }
@@ -1209,7 +1226,7 @@ swiper-container {
   border-radius: var(--radius);
   background: var(--global-card-bg-color);
   border: 1px solid var(--global-divider-color);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.14);
+  box-shadow: 0 0px 2px rgba(0, 0, 0, 0.14);
   overflow: hidden;
 }
 
@@ -1257,6 +1274,7 @@ swiper-slide {
     margin: 0 auto;
     object-fit: contain;
     border-radius: calc(var(--radius) - 4px);
+    box-shadow: none !important;
   }
 }
 

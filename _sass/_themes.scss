@@ -116,8 +116,6 @@ $hero-low-alpha: 0.02 !default; // for the banner's darkest gradient stop, used 
   --global-danger-block-title: #991b1b;
 
   #light-toggle-system {
-    padding-left: 10px;
-    padding-top: 12px;
     display: block;
   }
   #light-toggle-dark {
@@ -213,8 +211,6 @@ html[data-theme-setting="dark"] {
     display: none;
   }
   #light-toggle-dark {
-    padding-left: 10px;
-    padding-top: 12px;
     display: block;
   }
   #light-toggle-light {
@@ -234,8 +230,6 @@ html[data-theme-setting="light"] {
     display: none;
   }
   #light-toggle-light {
-    padding-left: 10px;
-    padding-top: 12px;
     display: block;
   }
 }

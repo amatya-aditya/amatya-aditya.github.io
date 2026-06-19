@@ -24,9 +24,33 @@
         <!-- Social Icons -->
         <div class="navbar-brand social">{% include social.liquid %}</div>
       {% endif %}
+      <!-- Always-visible controls: search + theme. Kept OUTSIDE the collapsible
+           menu so they stay beside (before) the hamburger on small screens
+           instead of being hidden inside it. -->
+      {% if site.search_enabled or site.enable_darkmode %}
+        <div class="navbar-controls">
+          {% if site.search_enabled %}
+            <!-- Search -->
+            <button id="search-toggle" class="nav-search" title="Search" onclick="openSearchModal()">
+              <i class="ti ti-search" aria-hidden="true"></i>
+              <span class="nav-search__label">Search</span>
+              <kbd class="nav-search__kbd">Ctrl K</kbd>
+            </button>
+          {% endif %}
+          {% if site.enable_darkmode %}
+            <!-- Toggle theme mode -->
+            <button id="light-toggle" title="Change theme">
+              <i class="ti ti-sun-moon" id="light-toggle-system"></i>
+              <i class="ti ti-moon-filled" id="light-toggle-dark"></i>
+              <i class="ti ti-sun-filled" id="light-toggle-light"></i>
+            </button>
+          {% endif %}
+        </div>
+      {% endif %}
+
       <!-- Navbar Toggle -->
       <button
-        class="navbar-toggler collapsed ml-auto"
+        class="navbar-toggler collapsed"
         type="button"
         data-toggle="collapse"
         data-target="#navbarNav"
@@ -117,26 +141,6 @@
               {% endif %}
             {% endif %}
           {% endfor %}
-          {% if site.search_enabled %}
-            <!-- Search -->
-            <li class="nav-item nav-item--search">
-              <button id="search-toggle" class="nav-search" title="Search" onclick="openSearchModal()">
-                <i class="ti ti-search" aria-hidden="true"></i>
-                <span class="nav-search__label">Search</span>
-                <kbd class="nav-search__kbd">Ctrl K</kbd>
-              </button>
-            </li>
-          {% endif %}
-          {% if site.enable_darkmode %}
-            <!-- Toogle theme mode -->
-            <li class="toggle-container">
-              <button id="light-toggle" title="Change theme">
-                <i class="ti ti-sun-moon" id="light-toggle-system"></i>
-                <i class="ti ti-moon-filled" id="light-toggle-dark"></i>
-                <i class="ti ti-sun-filled" id="light-toggle-light"></i>
-              </button>
-            </li>
-          {% endif %}
         </ul>
       </div>
     </div>

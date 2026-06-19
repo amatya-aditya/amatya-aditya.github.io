@@ -42,4 +42,4 @@ social: true # includes social icons at the bottom of the page
 
 <p class="lead-statement">"Controlling the variables across computational and experimental studies to support verification and validation of materials, structures, and electronic systems."</p>
 
-<p class="hero-note">Away from research, I play <a href="https://lichess.org/@/EngagedKnight" target="_blank" rel="noopener">chess</a>, read, and hike, usually in search of good views.</p>
+<p class="hero-note">Away from research, I play <a href="https://www.chess.com/member/convolutedsquare" target="_blank" rel="noopener">chess</a> and read, and I'd love to get back to hiking. Mostly, I just admire trees wherever I find them, in a forest, along a trail, or standing alone by the road. I think trees are the best thing there is.</p>

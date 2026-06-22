@@ -14,7 +14,9 @@ display_categories: [Mathematics, Solid Mechanics, Computational Mechanics, Nume
   <p class="notes-intro__lead">Personal summaries from the books and articles I read: key ideas, principles, derivations, formulas, and worked examples from my studies.</p>
 </div>
 
+{%- assign sorted_research = site.research-notes | sort: "importance" | reverse %}
 
+{%- if sorted_research.size > 0 -%}
 <div class="blog__categories">
   <div class="container">
 
@@ -28,16 +30,16 @@ display_categories: [Mathematics, Solid Mechanics, Computational Mechanics, Nume
 </div>
   {%- endif -%}
 
-
-
   {% assign categories = "" %}
   {%- for category in page.display_categories %}
     {% assign categories = categories | append: category | append: " " %}
   {%- endfor %}
 
-  <!-- Display categorized projects -->
-  {%- assign sorted_research = site.research-notes | sort: "importance" | reverse %}
-  <!-- Generate cards for each project -->
-    
-      {% include research_notes.liquid %}
+  <!-- Generate cards for each note -->
+  {% include research_notes.liquid %}
 </div>
+{%- else -%}
+<div class="stage-empty">
+  <p>Work in progress — notes are being written and will appear here soon.</p>
+</div>
+{%- endif -%}

@@ -9,9 +9,10 @@ nav_order: 4
 
 <!-- pages/reading.md -->
 
-<div class="notes-intro">
-  <p class="notes-intro__lead">Books I'm reading, books I've finished, and what I want to read next — with my rating, a few notes, and the occasional full review.</p>
-</div>
+<header class="stage-head">
+  <h2 class="stage-head__title"> <span class="stage-head__years">2026 Onwards</span></h2>
+  <p class="stage-head__note">What I'm reading now, what I've finished, and what's next — with ratings, notes, and the occasional full review.</p>
+</header>
 
 {%- comment -%} Collect the unique genres present, so chips update automatically as books are added {%- endcomment -%}
 {%- assign genre_list = "" -%}
@@ -109,3 +110,4 @@ nav_order: 4
     });
   })();
 </script>
+

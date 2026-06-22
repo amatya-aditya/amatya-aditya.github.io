@@ -100,9 +100,9 @@ d-article {
 
   h1, h2, h3, h4, h5, h6 { font-family: var(--font-sans); }
 
-  // Comfortable reading measure for flowing text blocks
+  // Let flowing text fill the content column (no narrow reading measure)
   p, ul, ol, blockquote {
-    max-width: var(--measure);
+    max-width: none;
   }
 }
 

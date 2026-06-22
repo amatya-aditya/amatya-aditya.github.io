@@ -259,7 +259,6 @@ sass:
     - global-builtin
     - if-function
     - color-functions
-    - mixed-decls
 
 # -----------------------------------------------------------------------------
 # Jekyll Minifier

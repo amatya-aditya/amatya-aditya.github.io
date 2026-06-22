@@ -30,6 +30,8 @@ pagination:
 </div>
 {% endif %}
 
+{% if site.posts.size > 0 %}
+
 <!-- Categories and Tags -->
 
 
@@ -225,6 +227,12 @@ pagination:
 <!-- Pagination -->
 {% if page.pagination.enabled %}
     {% include pagination.liquid %}
+{% endif %}
+
+{% else %}
+<div class="stage-empty">
+  <p>Work in progress — posts are on the way. Check back soon.</p>
+</div>
 {% endif %}
 
 </div>
